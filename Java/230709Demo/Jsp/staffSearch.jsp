@@ -1,5 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<%@page import="java.util.*,bms.staff.dto.StaffDto"%>
+<%@page import="java.util.*,bms.staff.dto.*"%>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -26,8 +26,9 @@
     	text-decoration: none;padding: 8px 16px;
     	border-radius: 4px;color: black;}
     .unitLi{margin-bottom: 2%;display:flex;justify-content: space-evenly}
-    .unitLi div{display:inline;width:297px;}
-    .unitLi input{padding:4px 8px;}
+    .unitLi div{display:inline;width:304px;}
+    .unitLi input, .unitLi select{padding:4px 8px;}
+    .unitLi select, .move{margin-left:10px;}
     .in input{zoom:150%;vertical-align: top;}
 
     .space{margin-right: 15%;}
@@ -52,22 +53,34 @@
     <h2><span>■</span>社員管理</h2>
     <h3><span>■</span>検索条件</h3>
     
-
+<%
+    ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
+	ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
+%>
+    
+<!-- action 對應xml servlet path  -->
     <form action="/bmsweb/StaffSearchServlet" method="post">
         <ul><li class="unitLi">
-                <lable for="com">所属会社
-                    <input type="text" name="com"></lable>
-                <lable for="name">社員名
-                    <input type="text" name="name"></lable>
+        		<lable for="com">所属会社<select name="com">
+        				<option value="" disabled selected>Please Choose It</option>
+<%  if(alCom != null){ 
+		for(StaffOptComDto arr:alCom){
+%>         				<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
+<% }} %>   			</select>
+				</lable><!--   <input type="text" name="com">   -->  
+                <lable for="name">社員名<input type="text" name="name" class="move"></lable>
             </li>
-            <li class="unitLi">
-                <lable for="pjt">職業種類
-                    <input type="text" name="pjt"></lable>
+            <li class="unitLi">            
+                <lable for="pjt">職業種類<select name="pjt" style="width:230px;">
+        				<option value="" disabled selected>Please Choose It</option>
+<%  if(alPjt != null){ 
+		for(StaffOptPjtDto arr:alPjt){
+%>         				<option value="<%=arr.getId() %>"><%=arr.getPjt() %></option>
+<% }} %>   			</select>
+				</lable><!--   <input type="text" name="pjt">   -->             
                 <div class="in">
-                    <lable for="on" class="space">在籍
-                        <input type="checkbox" name="on"></lable>
-                    <lable for="off">非在籍
-                        <input type="checkbox" name="off" ></lable>
+                    <lable for="on" class="space">在籍<input type="checkbox" name="on"></lable>
+                    <lable for="off">非在籍<input type="checkbox" name="off" ></lable>
                 </div>
             </li>
             <li class="txtc"><button type="submit" style="cursor:pointer;">検索</button></li>

@@ -53,7 +53,7 @@
     <h3><span>■</span>検索条件</h3>
     
 
-    <form action="/bmsweb/staffsearch" method="post">
+    <form action="/bmsweb/StaffSearchServlet" method="post">
         <ul><li class="unitLi">
                 <lable for="com">所属会社
                     <input type="text" name="com"></lable>

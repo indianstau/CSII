@@ -7,6 +7,46 @@ import bms.common.dao.CommonDAO;
 import bms.staff.dto.StaffDto;
 
 public class StaffDao extends CommonDAO{
+
+		public ArrayList<StaffOptPjtDto> getPjtValue(){
+		try {
+			connect();
+			String sql ="Select * from kind";
+			ResultSet rs = executeQuery(sql);
+			ArrayList<StaffOptPjtDto> pjtAl = new ArrayList<StaffOptPjtDto>();
+			while(rs.next()) {
+				StaffOptPjtDto optDto = new StaffOptPjtDto();
+				optDto.setId(rs.getInt("id"));
+				optDto.setPjt(rs.getString("pjt"));
+				pjtAl.add(optDto);
+			}
+			return pjtAl;		
+		}catch(Exception e) {
+			throw new IllegalStateException(e);
+		}finally {
+			disconnect();
+		}
+	}
+	
+	public ArrayList<StaffOptComDto> getComValue(){
+		try {
+			connect();
+			String sql ="Select * from syo";
+			ResultSet rs = executeQuery(sql);
+			ArrayList<StaffOptComDto> comAl = new ArrayList<StaffOptComDto>();
+			while(rs.next()) {
+				StaffOptComDto optDto = new StaffOptComDto();
+				optDto.setId(rs.getInt("id"));
+				optDto.setCom(rs.getString("com"));
+				comAl.add(optDto);
+			}
+			return comAl;	
+		}catch(Exception e) {
+			throw new IllegalStateException(e);
+		}finally {
+			disconnect();
+		}
+	}
 	
 	public ArrayList<StaffDto> selectAll(){
 		try {
@@ -69,14 +109,11 @@ public class StaffDao extends CommonDAO{
 				stfAl.add(stf);
 			}
 			return stfAl;
-
-			
 		}catch(Exception e) {
 			throw new IllegalStateException(e);
 		}finally {
 			disconnect();
 		}
-		
 	}
 
 }

@@ -45,6 +45,7 @@
 4. checkbox => req.getParameterValues("欄位name")
 5. Dto 是 DB 的 column name
 6. 三元判斷式    條件式 ? ture :false
+7. tr:nth-child(even)  CSS  
    
 ----------------------------------
 #### 計畫  

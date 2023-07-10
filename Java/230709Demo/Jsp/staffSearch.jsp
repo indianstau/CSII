@@ -9,8 +9,8 @@
 <style>
     body{margin: 0;}
     ul{list-style: none;padding:0;}
-	table{width:100%;margin-bottom:10%;border-collapse: collapse;}
-	th, td{padding:12px 8px;}
+    table{width:100%;margin-bottom:10%;border-collapse: collapse;}
+    th, td{padding:12px 8px;}
     .wrap{padding: 0 2%;}
     h1{text-align: center;font-weight: bold;}
     span{font-size:40px;color:#B0E0E6;}
@@ -35,17 +35,15 @@
     .count{text-align:right;margin: 0 3% 1% 0;}
     .count a{margin-left:6%;}
 
-   	tr:nth-child(even){background-color:#EDEDED;}
-   	tr:hover{background-color: lightgreen;}
+    tr:nth-child(even){background-color:#EDEDED;}
+    tr:hover{background-color: lightgreen;}
     .bg, tr:first-child:hover{background-color:#B0E0E6;}
 </style>
 </head>
 <body>
 <div class="wrap">
     <h1>社內統合管理システム</h1>
-	<div>
-
-    	<a href="/bmsweb/menu.jsp" style="margin-right:3%;">
+	<div><a href="/bmsweb/menu.jsp" style="margin-right:3%;">
     		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
 		<lable>登陸時間:<input type="text" class="txtBnot"></lable>
 	</div>
@@ -61,28 +59,28 @@
 <!-- action 對應xml servlet path  -->
     <form action="/bmsweb/StaffSearchServlet" method="post">
         <ul><li class="unitLi">
-        		<lable for="com">所属会社<select name="com">
-        				<option value="0" disabled selected>Please Choose It</option>
+        	<lable for="com">所属会社<select name="com">
+        		<option value="0" disabled selected>Please Choose It</option>
 <%  if(alCom != null){
 		for(StaffOptComDto arr:alCom){
-%>         				<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
-<% }} %>   			</select>
-				</lable><!--   <input type="text" name="com">   -->
+%>         		<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
+<% }} %>   	   </select>
+		</lable><!--   <input type="text" name="com">   -->
                 <lable for="name">社員名<input type="text" name="name" class="move"></lable>
             </li>
             <li class="unitLi">
                 <lable for="pjt">職業種類<select name="pjt" style="width:230px;">
-        				<option value="" disabled selected>Please Choose It</option>
+        		<option value="" disabled selected>Please Choose It</option>
 <%  if(alPjt != null){
-		for(StaffOptPjtDto arr:alPjt){
-%>         				<option value="<%=arr.getId() %>"><%=arr.getPjt() %></option>
-<% }} %>   			</select>
-				</lable><!--   <input type="text" name="pjt">   -->
+	for(StaffOptPjtDto arr:alPjt){
+%>         		<option value="<%=arr.getId() %>"><%=arr.getPjt() %></option>
+<% }} %>   	   </select>
+		</lable><!--   <input type="text" name="pjt">   -->
                 <div class="in">
                     <input type="checkbox" name="jobstat" value="0">非在籍
                     <input type="checkbox" name="jobstat" value="1" class="space" checked>在籍
 
-<!--                    <lable for="on" class="space">在籍<input type="checkbox" name="on" value="0"></lable>
+<!--                <lable for="on" class="space">在籍<input type="checkbox" name="on" value="0"></lable>
                     <lable for="off">非在籍<input type="checkbox" name="off" value="1"></lable>                          -->
                 </div>
             </li>
@@ -99,7 +97,7 @@
 <% if(alStf == null){ %>
         件数：0件
 <% }else{%>
-		件数：<%= alStf.size() %>件
+	件数：<%= alStf.size() %>件
 <% } %>
         <a href="/bmsweb/new.jsp" style="background-color: antiquewhite;">新規登錄</a>
     </div>
@@ -129,7 +127,7 @@
             <td><%=dto.getTAISYA_DATE() == null ? "" : dto.getTAISYA_DATE() %></td>
             <td class="txtc">
                 <a href="/bmsweb/" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
-                <a href="/bmsweb/" style="background-color: pink;">削除</a>
+                <a href="/bmsweb/delete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>
             </td>
         </tr>
 <% }} %>

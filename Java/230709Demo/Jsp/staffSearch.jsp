@@ -55,7 +55,7 @@
 
 <%
     ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
-	ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
+    ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
 %>
 
 <!-- action 對應xml servlet path  -->

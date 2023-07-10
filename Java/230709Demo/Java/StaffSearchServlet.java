@@ -2,9 +2,6 @@ package bms.staff.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import javax.management.loading.PrivateClassLoader;
 
 import bms.staff.dao.StaffDao;
 import bms.staff.dto.StaffDto;
@@ -52,20 +49,29 @@ public class StaffSearchServlet extends HttpServlet{
 			pjt = pjtAl.get(index).getPjt();
 		}
 
-
 		if(jobStat != null && jobStat.length<2) {
-//			 0 no    1在    2不傳null
+			// 前端  0離  1在
+			// DB   退社有日期為己離職   無日期還在籍
+			// 2選  2不選
 			if( "0".equals(jobStat[0]) ) {
-				//前端值為0 己離職   DB有值
+				//前0 退社Not null(有值) 離
 				jstat = "not Null";
-				System.out.println(jobStat[0]);
+//				System.out.println(jobStat[0]+" not null 離職");
 			}else{
+				//前1 退社isNull  在職
 				jstat = "Null";
+//				System.out.println(jobStat[0]+" Null 在");
 	        }
+		}else {
+			// 兩選  兩不選
+			jstat = null;
+//			System.out.println(jobStat[0]+" Null值 選兩者");
 		}
-
-		System.out.println("out "+jstat);
-
+		// 1"null"字串  2比空字符""  3null
+//		System.out.println("null".equals(jstat));
+//		System.out.println("".equals(jstat));
+//		System.out.println(jstat==null);
+		
 		ArrayList<StaffDto> stfAl = stfDao.search(name, com, pjt, jstat);
 
 //		for(int i=0;i<sexAl.size();i++) {

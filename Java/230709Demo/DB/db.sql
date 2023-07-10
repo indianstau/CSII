@@ -13,11 +13,11 @@ UPDATE `csiisysdb2`.`syain_main` SET `FIRST_NAME_KANJI`='花輪', `LAST_NAME_KAN
 UPDATE `csiisysdb2`.`syain_main` SET `FIRST_NAME_KANJI`='佐々木',`LAST_NAME_KANJI`='久留美',`TAISYA_DATE`='2016-01-15',`NYUUSYA_DATE`='2013-03-08' WHERE  `SYAIN_ID`=10;
 
 
-SHOW CREATE TABLE `csiisysdb2`.`aaa`;
-ALTER TABLE `aaa`
-	CHANGE COLUMN `欄位 1` `id` INT(11) NULL DEFAULT NULL FIRST,
-	CHANGE COLUMN `欄位 2` `pjt` VARCHAR(50) NULL DEFAULT NULL AFTER `id`;
-RENAME TABLE `aaa` TO `kind`;
+create table kind(
+   id INT NOT NULL AUTO_INCREMENT,
+   pjt VARCHAR(100) NOT NULL,
+   PRIMARY KEY ( id )
+);
 
 INSERT INTO `kind` (`id`, `pjt`) VALUES (1, '役員');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (2, '総務');
@@ -27,11 +27,11 @@ INSERT INTO `kind` (`id`, `pjt`) VALUES (5, '不動産スタッフ');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (6, '個人事業主');
 
 
-SHOW CREATE TABLE `csiisysdb2`.`bbb`;
-ALTER TABLE `bbb`
-	CHANGE COLUMN `欄位 1` `id` INT(11) NULL DEFAULT NULL FIRST,
-	CHANGE COLUMN `欄位 2` `com` VARCHAR(50) NULL DEFAULT NULL AFTER `id`;
-RENAME TABLE `bbb` TO `syo`;
+create table syo(
+   id INT NOT NULL AUTO_INCREMENT,
+   com VARCHAR(100) NOT NULL,
+   PRIMARY KEY ( id )
+);
 
 INSERT INTO `syo` (`id`, `com`) VALUES (1, '株式会社ブライトスター');
 INSERT INTO `syo` (`id`, `com`) VALUES (2, '株式会社トップクラウド');

@@ -12,30 +12,27 @@ UPDATE `csiisysdb2`.`syain_main` SET `FIRST_NAME_KANJI`='長島', `LAST_NAME_KAN
 UPDATE `csiisysdb2`.`syain_main` SET `FIRST_NAME_KANJI`='花輪', `LAST_NAME_KANJI`='崢蟀',`NYUUSYA_DATE`='2017-12-01' WHERE  `SYAIN_ID`=9;
 UPDATE `csiisysdb2`.`syain_main` SET `FIRST_NAME_KANJI`='佐々木',`LAST_NAME_KANJI`='久留美',`TAISYA_DATE`='2016-01-15',`NYUUSYA_DATE`='2013-03-08' WHERE  `SYAIN_ID`=10;
 
-CREATE TABLE `kind` (
-	`id` INT(11) NOT NULL,
-	`pjt` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'ujis_japanese_ci',
-	PRIMARY KEY (`id`) USING BTREE
-)
-COLLATE='ujis_japanese_ci'
-ENGINE=InnoDB
-;
+
+SHOW CREATE TABLE `csiisysdb2`.`aaa`;
+ALTER TABLE `aaa`
+	CHANGE COLUMN `欄位 1` `id` INT(11) NULL DEFAULT NULL FIRST,
+	CHANGE COLUMN `欄位 2` `pjt` VARCHAR(50) NULL DEFAULT NULL AFTER `id`;
+RENAME TABLE `aaa` TO `kind`;
 
 INSERT INTO `kind` (`id`, `pjt`) VALUES (1, '役員');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (2, '総務');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (3, 'IT營業');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (4, 'ITエンジニア');
-INSERT INTO `kind (`id`, `pjt`) VALUES (5, '不動産スタッフ');
+INSERT INTO `kind` (`id`, `pjt`) VALUES (5, '不動産スタッフ');
 INSERT INTO `kind` (`id`, `pjt`) VALUES (6, '個人事業主');
 
-CREATE TABLE `syo` (
-	`id` INT(11) NOT NULL,
-	`com` VARCHAR(50) NOT NULL COLLATE 'ujis_japanese_ci',
-	PRIMARY KEY (`id`) USING BTREE
-)
-COLLATE='ujis_japanese_ci'
-ENGINE=InnoDB
-;
+
+SHOW CREATE TABLE `csiisysdb2`.`bbb`;
+ALTER TABLE `bbb`
+	CHANGE COLUMN `欄位 1` `id` INT(11) NULL DEFAULT NULL FIRST,
+	CHANGE COLUMN `欄位 2` `com` VARCHAR(50) NULL DEFAULT NULL AFTER `id`;
+RENAME TABLE `bbb` TO `syo`;
+
 INSERT INTO `syo` (`id`, `com`) VALUES (1, '株式会社ブライトスター');
 INSERT INTO `syo` (`id`, `com`) VALUES (2, '株式会社トップクラウド');
 

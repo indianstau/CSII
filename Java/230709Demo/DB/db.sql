@@ -83,6 +83,19 @@ SYOKUGYO_KIND
 3.IT營業
 4.ITエンジニア
 5.不動産スタッフ
+
+SELECT 
+syain_id,NYUUSYA_DATE,TAISYA_DATE,m_sex.sex,kind.pjt,syo.com
+,CONCAT(syain_main.first_name_kanji, '',syain_main.LAST_NAME_KANJI) as name
+FROM syain_main JOIN m_sex ON syain_main.SEIBETU = m_sex.id 
+JOIN kind ON syain_main.SYOKUGYO_KIND = kind.id 
+JOIN syo ON syain_main.syozoku_kaisya = syo.id 
+having name LIKE '%' AND com = '株式会社ブライトスター' AND TAISYA_DATE IS not NULL 
+ORDER BY syain_id;
+
+
+SELECT TAISYA_DATE FROM syain_main WHERE TAISYA_DATE IS NULL;
+SELECT TAISYA_DATE FROM syain_main WHERE TAISYA_DATE IS not null;
 6.個人事業主
 */
 SELECT category3,VALUE1 FROM tg_setting

@@ -44,4 +44,16 @@
 
 4. checkbox => req.getParameterValues("欄位name")
 5. Dto 是 DB 的 column name
-6. 三元條件式    條件式 ? ture :false  
+6. 三元判斷式    條件式 ? ture :false
+   
+----------------------------------
+#### 計畫  
+1. Delete insert update
+2. Search time
+3. 自己會寫Dao 不用抄  
+4. list 分頁
+5. ErrorMsg 後台  
+
+待補  
+SVN  Eclipse 改編碼  Debug  tomCat, JDK 對應verson解決方法  自動提示設定  
+To be continued..  

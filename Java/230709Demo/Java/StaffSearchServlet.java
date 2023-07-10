@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.management.loading.PrivateClassLoader;
+
 import bms.staff.dao.StaffDao;
 import bms.staff.dto.StaffDto;
 import bms.staff.dto.StaffOptComDto;
@@ -18,33 +20,67 @@ public class StaffSearchServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		//初始化,對應位置用
+		int index = 0;
+		String jstat = "";
+		boolean flag = true;
+
+		//1.第一次進入時   要抓到 DB 對應值  倒回 Jsp select option
+		StaffDao stfDao = new StaffDao();
+		ArrayList<StaffOptComDto> comAl = stfDao.getComValue();
+		ArrayList<StaffOptPjtDto> pjtAl = stfDao.getPjtValue();
+
+		//2.抓user 選的值
 		String name = req.getParameter("name");
 		String com = req.getParameter("com");
 		String pjt = req.getParameter("pjt");
-		
-		StaffDao stfDao = new StaffDao();
-		ArrayList<StaffDto> stfAl = stfDao.search(name);
-		ArrayList<StaffOptComDto> comAl = stfDao.getComValue();
-		ArrayList<StaffOptPjtDto> pjtAl = stfDao.getPjtValue();
-		
+		// null 問題
+		String [] jobStat = req.getParameterValues("jobstat");
+
+		if(com != null) {
+			// index -1 才是正確的位置   string to int
+			index = Integer.valueOf(com).intValue() - 1;
+			// 拿到對應位置的 (String) com 存回去
+			com = comAl.get(index).getCom();
+		}
+
+		if(pjt != null) {
+			index = Integer.valueOf(pjt).intValue()-1;
+			pjt = pjtAl.get(index).getPjt();
+		}
+
+
+		if(jobStat != null && jobStat.length<2) {
+//			 0 no    1在    2不傳null
+			if( "0".equals(jobStat[0]) ) {
+				//前端值為0 己離職   DB有值
+				jstat = "not Null";
+				System.out.println(jobStat[0]);
+			}else{
+				jstat = "Null";
+	        }
+		}
+
+		System.out.println("out "+jstat);
+
+		ArrayList<StaffDto> stfAl = stfDao.search(name, com, pjt, jstat);
+
 //		for(int i=0;i<sexAl.size();i++) {
 //			System.out.println(sexAl.get(i).getId());
+//		    System.out.println(comAl.get(0).getCom());
 //		}
 
-//		sexAl.forEach(System.out::println);
-		
 //		for(StaffOptComDto arr:comAl) {
 //			System.out.print(arr.getId());
 //			System.out.println(arr.getCom());
 //		}
 
-		req.setAttribute("stfAl",stfAl);
 		req.setAttribute("comAl",comAl);
 		req.setAttribute("pjtAl",pjtAl);
+		req.setAttribute("stfAl",stfAl);
 		req.getRequestDispatcher("/staffSearch.jsp").forward(req,resp);
 	}
 }

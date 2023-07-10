@@ -47,15 +47,12 @@
     		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
 		<lable>登陸時間:<input type="text" class="txtBnot"></lable>
 	</div>
-
     <h2><span>■</span>社員管理</h2>
     <h3><span>■</span>検索条件</h3>
-
 <%
     ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
     ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
 %>
-
 <!-- action 對應xml servlet path  -->
     <form action="/bmsweb/StaffSearchServlet" method="post">
         <ul><li class="unitLi">
@@ -87,11 +84,9 @@
             <li class="txtc"><button type="submit" style="cursor:pointer;">検索</button></li>
         </ul>
     </form>
-
 <%
     ArrayList<StaffDto> alStf = (ArrayList) request.getAttribute("stfAl");
 %>
-
     <h3><span>■</span>社員一覽</h3>
     <div class="count">
 <% if(alStf == null){ %>

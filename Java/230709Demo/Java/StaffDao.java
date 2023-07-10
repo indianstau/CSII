@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import bms.common.dao.CommonDAO;
 import bms.staff.dto.StaffDto;
+import bms.staff.dto.StaffOptComDto;
+import bms.staff.dto.StaffOptPjtDto;
 
 public class StaffDao extends CommonDAO{
 

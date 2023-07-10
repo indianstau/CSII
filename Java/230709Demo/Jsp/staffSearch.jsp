@@ -62,7 +62,7 @@
         	<lable for="com">所属会社<select name="com">
         		<option value="0" disabled selected>Please Choose It</option>
 <%  if(alCom != null){
-		for(StaffOptComDto arr:alCom){
+	for(StaffOptComDto arr:alCom){
 %>         		<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
 <% }} %>   	   </select>
 		</lable><!--   <input type="text" name="com">   -->

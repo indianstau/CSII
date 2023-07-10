@@ -31,7 +31,7 @@
     .unitLi select, .move{margin-left:10px;}
     .in input{zoom:150%;vertical-align: top;}
 
-    .space{margin-right: 15%;}
+    .space{margin-left: 15%;}
     .count{text-align:right;margin: 0 3% 1% 0;}
     .count a{margin-left:6%;}
 
@@ -44,7 +44,7 @@
 <div class="wrap">
     <h1>社內統合管理システム</h1>
 	<div>
-		
+
     	<a href="/bmsweb/menu.jsp" style="margin-right:3%;">
     		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
 		<lable>登陸時間:<input type="text" class="txtBnot"></lable>
@@ -52,35 +52,38 @@
 
     <h2><span>■</span>社員管理</h2>
     <h3><span>■</span>検索条件</h3>
-    
+
 <%
     ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
 	ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
 %>
-    
+
 <!-- action 對應xml servlet path  -->
     <form action="/bmsweb/StaffSearchServlet" method="post">
         <ul><li class="unitLi">
         		<lable for="com">所属会社<select name="com">
-        				<option value="" disabled selected>Please Choose It</option>
-<%  if(alCom != null){ 
+        				<option value="0" disabled selected>Please Choose It</option>
+<%  if(alCom != null){
 		for(StaffOptComDto arr:alCom){
 %>         				<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
 <% }} %>   			</select>
-				</lable><!--   <input type="text" name="com">   -->  
+				</lable><!--   <input type="text" name="com">   -->
                 <lable for="name">社員名<input type="text" name="name" class="move"></lable>
             </li>
-            <li class="unitLi">            
+            <li class="unitLi">
                 <lable for="pjt">職業種類<select name="pjt" style="width:230px;">
         				<option value="" disabled selected>Please Choose It</option>
-<%  if(alPjt != null){ 
+<%  if(alPjt != null){
 		for(StaffOptPjtDto arr:alPjt){
 %>         				<option value="<%=arr.getId() %>"><%=arr.getPjt() %></option>
 <% }} %>   			</select>
-				</lable><!--   <input type="text" name="pjt">   -->             
+				</lable><!--   <input type="text" name="pjt">   -->
                 <div class="in">
-                    <lable for="on" class="space">在籍<input type="checkbox" name="on"></lable>
-                    <lable for="off">非在籍<input type="checkbox" name="off" ></lable>
+                    <input type="checkbox" name="jobstat" value="0">非在籍
+                    <input type="checkbox" name="jobstat" value="1" class="space" checked>在籍
+
+<!--                    <lable for="on" class="space">在籍<input type="checkbox" name="on" value="0"></lable>
+                    <lable for="off">非在籍<input type="checkbox" name="off" value="1"></lable>                          -->
                 </div>
             </li>
             <li class="txtc"><button type="submit" style="cursor:pointer;">検索</button></li>
@@ -91,7 +94,7 @@
     ArrayList<StaffDto> alStf = (ArrayList) request.getAttribute("stfAl");
 %>
 
-    <h3><span>■</span>社員一覽</h3>    
+    <h3><span>■</span>社員一覽</h3>
     <div class="count">
 <% if(alStf == null){ %>
         件数：0件
@@ -114,7 +117,7 @@
 	if(alStf != null){
 		Iterator it = alStf.iterator();
 		while(it.hasNext()){
-			StaffDto dto =(StaffDto) it.next();     	
+			StaffDto dto =(StaffDto) it.next();
 %>
         <tr>
             <td style="display:none;"><%=dto.getSyain_id() %></td>

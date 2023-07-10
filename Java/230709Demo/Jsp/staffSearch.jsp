@@ -107,10 +107,10 @@
             <th>編集</th>
         </tr>
 <%
-	if(alStf != null){
-		Iterator it = alStf.iterator();
-		while(it.hasNext()){
-			StaffDto dto =(StaffDto) it.next();
+if(alStf != null){
+	Iterator it = alStf.iterator();
+	while(it.hasNext()){
+		StaffDto dto =(StaffDto) it.next();
 %>
         <tr>
             <td style="display:none;"><%=dto.getSyain_id() %></td>

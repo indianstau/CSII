@@ -54,7 +54,7 @@
     ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
 %>
 <!-- action 對應xml servlet path  -->
-    <form action="/bmsweb/StaffSearchServlet" method="post">
+    <form action="/bmsweb/staffSearch" method="post">
         <ul><li class="unitLi">
         	<lable for="com">所属会社<select name="com">
         		<option value="0" disabled selected>Please Choose It</option>

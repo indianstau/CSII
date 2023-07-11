@@ -123,11 +123,30 @@ if(alStf != null){
             <td class="txtc">
                 <a href="/bmsweb/" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
 			<!--  path & xml 一致 -->
-                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>
+		<button class="deleteBtn" type="button">削除</button>
+<!--                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>   -->
             </td>
         </tr>
 <% }} %>
     </table>
 </div>
+
+<script>
+	function showDelMsg(){
+		window.confirm("Are you sure delete it ?");
+
+		if(confirm){
+			console.log("yes delete it !");
+		}else{
+			console.log("No, do not delete it !");
+		}
+	}
+	const btn = document.querySelector('.deleteBtn');
+	console.log(btn);
+
+	document.addEventListener('click', showDelMsg);
+
+</script>
+
 </body>
 </html>

@@ -11,7 +11,7 @@
 </servlet>
 <servlet-mapping>
 		<servlet-name>staffList</servlet-name>
-		<url-pattern>/StaffListServlet</url-pattern>
+		<url-pattern>/StaffList</url-pattern>
 </servlet-mapping>
 	
 <servlet>
@@ -20,7 +20,7 @@
 </servlet>
 <servlet-mapping>
 		<servlet-name>staffSearch</servlet-name>
-		<url-pattern>/StaffSearchServlet</url-pattern>
+		<url-pattern>/staffSearch</url-pattern>
 </servlet-mapping>
   
 </web-app>

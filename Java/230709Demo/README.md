@@ -2,13 +2,15 @@
 1.  create db 資料   
 2.  Staff  Dto and Staff Dao
 3.  optDto and servlet (list & search)      **ok**    
-4.  insert 社員 資料  
+4.  insert 社員 資料
+5.  delete servlet and dao jsMsg
 ------------------------  
 
 ### 改善  
 1. str 累加 StringBuffer  
 2. input: radio select option checkbox 除了從後端撈出對應方法外？
-3. Dao 各method()  <> ArrayList array 更好的寫法  
+3. Dao 各method()  <> ArrayList array 更好的寫法
+4. date 預處理
   
 ------------------------  
 ### 筆記  與  遇到的問題  

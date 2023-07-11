@@ -122,7 +122,8 @@ if(alStf != null){
             <td><%=dto.getTAISYA_DATE() == null ? "" : dto.getTAISYA_DATE() %></td>
             <td class="txtc">
                 <a href="/bmsweb/" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
-                <a href="/bmsweb/delete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>
+			<!--  path & xml 一致 -->
+                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>
             </td>
         </tr>
 <% }} %>

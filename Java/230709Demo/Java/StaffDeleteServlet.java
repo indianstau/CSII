@@ -14,9 +14,14 @@ public class StaffDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// jsp a tag 上寫id? 就是這id
 		String sid = req.getParameter("id");
-		System.out.print(sid);
+		//System.out.print(sid);
+		
 		StaffDao stfDao = new StaffDao();
+		stfDao.delectById(sid);
 
+		ArrayList<StaffDto> stfAl = stfDao.selectAll();
+		
+		req.setAttribute("stfAl", stfAl);
 		req.getRequestDispatcher("/staffSearch.jsp").forward(req, resp);
 	}
 	@Override

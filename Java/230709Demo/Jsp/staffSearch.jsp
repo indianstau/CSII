@@ -94,7 +94,7 @@
 <% }else{%>
 	件数：<%= alStf.size() %>件
 <% } %>
-        <a href="/bmsweb/new.jsp" style="background-color: antiquewhite;">新規登錄</a>
+        <a href="/bmsweb/Insert.jsp" style="background-color: antiquewhite;">新規登錄</a>
     </div>
     <table>
         <tr class="bg">

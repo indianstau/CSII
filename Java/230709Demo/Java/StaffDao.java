@@ -136,5 +136,17 @@ public class StaffDao extends CommonDAO{
 			disconnect();
 		}
 	}
+	public int delectById(String id) {
+		try {
+			connect();
+			String sql  = "DELETE FROM syain_main WHERE syain_id = " + id ;
+			int ext = executeUpdate(sql);
+			return ext;
+		}catch(Exception e){
+			throw new IllegalStateException(e);
+		}finally {
+			disconnect();
+		}
+	}
 
 }

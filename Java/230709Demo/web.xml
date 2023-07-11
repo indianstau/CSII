@@ -22,5 +22,14 @@
 		<servlet-name>staffSearch</servlet-name>
 		<url-pattern>/staffSearch</url-pattern>
 </servlet-mapping>
+	
+<servlet>
+	<servlet-name>staffDelete</servlet-name>
+	<servlet-class>bms.staff.controller.StaffDeleteServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>staffDelete</servlet-name>
+	<url-pattern>/staffDelete</url-pattern>
+</servlet-mapping>
   
 </web-app>

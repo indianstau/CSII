@@ -122,7 +122,7 @@ if(alStf != null){
             <td><%=dto.getTAISYA_DATE() == null ? "" : dto.getTAISYA_DATE() %></td>
             <td class="txtc">
                 <a href="/bmsweb/" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
-			<!--  path & xml 一致 -->
+			<!--  path & xml 一致  不要寫明碼！-->
 		<a class="deleteBtn" href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>">削除</a>
 <!--                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>   -->
             </td>
@@ -132,24 +132,29 @@ if(alStf != null){
 </div>
 
 <script>
+// 建立刪除前的Msg
+// querySelectorAll 抓複數
 const btn = document.querySelectorAll('.deleteBtn');
 
 function showDelMsg(){
+	// 跳確認框  回傳 ture & false
 	var confirm = window.confirm("Are you sure delete it ?");
 		if(confirm){
 			console.log("yes delete it !");
 		}else{
+			//阻止向下執行
 			event.preventDefault();
 			console.log("No, do not delete it !");
 		}
 }
-
+// 因為 btn[]  是Array
+// e 是  event.target   ;  event.currentTarget  當前click 的目標
 btn.forEach(function (e){
 	e.addEventListener('click',showDelMsg);
 });
 
-//	btn[2].attributes['value']
-//	e.target.getAttribute("value");
+//	btn[2].attributes['value'] 
+//	e.target.getAttribute("value");  //抓值
 
 </script>
 

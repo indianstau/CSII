@@ -53,6 +53,8 @@ public class StaffDao extends CommonDAO{
 	public ArrayList<StaffDto> selectAll(){
 		try {
 			connect();
+			// DB SYOKUGYO_KIND,syozoku_kaisya,SEIBETU  要有值  才撈的出來 詳見DB Readme.md  
+			// sql語句作了三個表的聯集  ！！！  
 			String sql = "SELECT syain_id,NYUUSYA_DATE,TAISYA_DATE,m_sex.sex,kind.pjt,syo.com "
 					+ ",CONCAT(syain_main.first_name_kanji, '',syain_main.LAST_NAME_KANJI) as name "
 					+ "FROM syain_main JOIN m_sex ON syain_main.SEIBETU = m_sex.id "

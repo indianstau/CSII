@@ -123,7 +123,7 @@ if(alStf != null){
             <td class="txtc">
                 <a href="/bmsweb/" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
 			<!--  path & xml 一致 -->
-		<button class="deleteBtn" type="button">削除</button>
+		<a class="deleteBtn" href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>">削除</a>
 <!--                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>   -->
             </td>
         </tr>
@@ -132,19 +132,24 @@ if(alStf != null){
 </div>
 
 <script>
-	function showDelMsg(){
-		window.confirm("Are you sure delete it ?");
+const btn = document.querySelectorAll('.deleteBtn');
 
+function showDelMsg(){
+	var confirm = window.confirm("Are you sure delete it ?");
 		if(confirm){
 			console.log("yes delete it !");
 		}else{
+			event.preventDefault();
 			console.log("No, do not delete it !");
 		}
-	}
-	const btn = document.querySelector('.deleteBtn');
-	console.log(btn);
+}
 
-	document.addEventListener('click', showDelMsg);
+btn.forEach(function (e){
+	e.addEventListener('click',showDelMsg);
+});
+
+//	btn[2].attributes['value']
+//	e.target.getAttribute("value");
 
 </script>
 

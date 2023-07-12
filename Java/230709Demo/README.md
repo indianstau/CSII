@@ -48,6 +48,20 @@
 5. Dto 是 DB 的 column name
 6. 三元判斷式    條件式 ? ture :false
 7. tr:nth-child(even)  CSS
+8. JavaScript querySelectorAll  & querySelector (只抓第一個)   
+   window  &  document XXXXX
+```
+const btn = document.querySelectorAll('.deleteBtn');
+console.log(btn); //複數
+    //點哪裡都會顯示  
+    //document.addEventListener('click', showDelMsg);    X  
+    //window.addEventListener('click', showDelMsg);      X  
+  // element target -> a
+	btn.forEach(function (a){
+		a.addEventListener('click', showDelMsg);
+	});
+```
+
 
 A. SVN 競合問題     
    

@@ -13,8 +13,9 @@
 4. date 預處理
   
 ------------------------  
-### 筆記  與  遇到的問題  
-1. ArrayList<> al  只會顯示置位  forEach 方法
+### 筆記  與  
+> **Note**  
+>1. ArrayList<> al  只會顯示置位  forEach 方法
 ```  
    for(int i=0;i<sexAl.size();i++) {
                 // ArrayList.get(i).getMethod();
@@ -29,7 +30,7 @@
    sexAl.forEach(System.out::println);
 
 ```  
-2. null 的處理
+>2. null 的處理
 ```  
     // 1"null"字串  2比空字符""  3null  4比String[]的值
     System.out.println("null".equals(jstat));
@@ -38,17 +39,17 @@
     "0".equals(jobStat[0])
     // isEmpty()
 ```
-3. 是對應servlet 的位置  
+>3. 是對應servlet 的位置  
 ```
     <form action=""></form>
     // & web.xml 
 ```  
 
-4. checkbox => req.getParameterValues("欄位name")
-5. Dto 是 DB 的 column name
-6. 三元判斷式    條件式 ? ture :false
-7. tr:nth-child(even)  CSS
-8. JavaScript querySelectorAll  & querySelector (只抓第一個)   
+>4. checkbox => req.getParameterValues("欄位name")
+>5. Dto 是 DB 的 column name
+>6. 三元判斷式    條件式 ? ture :false
+>7. tr:nth-child(even)  CSS
+>8. JavaScript querySelectorAll  & querySelector (只抓第一個)   
    window  &  document XXXXX
 ```
 const btn = document.querySelectorAll('.deleteBtn');
@@ -62,7 +63,8 @@ console.log(btn); //複數
 	});
 ```
 
-
+###  遇到的問題  
+>**Warning**  
 A. SVN 競合問題     
    
 ----------------------------------

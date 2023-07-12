@@ -16,14 +16,14 @@
 ### 筆記  與  
 > **Note**  
 >1. ArrayList<> al  只會顯示置位  forEach 方法
-```  
+```java  
    for(int i=0;i<sexAl.size();i++) {
-                // ArrayList.get(i).getMethod();
+	// ArrayList.get(i).getMethod();
       System.out.println(sexAl.get(i).getId());
       System.out.println(comAl.get(0).getCom());
    }
    for(StaffOptComDto arr:comAl) {
-                  //arr.getMethod();
+	//arr.getMethod();
       System.out.print(arr.getId());
       System.out.println(arr.getCom());
    }
@@ -31,7 +31,7 @@
 
 ```  
 >2. null 的處理
-```  
+```java   
     // 1"null"字串  2比空字符""  3null  4比String[]的值
     System.out.println("null".equals(jstat));
     System.out.println("".equals(jstat));
@@ -40,9 +40,9 @@
     // isEmpty()
 ```
 >3. 是對應servlet 的位置  
-```
+```html  
     <form action=""></form>
-    // & web.xml 
+    <!-- & web.xml  --> 
 ```  
 
 >4. checkbox => req.getParameterValues("欄位name")
@@ -51,7 +51,7 @@
 >7. tr:nth-child(even)  CSS
 >8. JavaScript querySelectorAll  & querySelector (只抓第一個)   
    window  &  document XXXXX
-```
+```javascript  
 const btn = document.querySelectorAll('.deleteBtn');
 console.log(btn); //複數
     //點哪裡都會顯示  

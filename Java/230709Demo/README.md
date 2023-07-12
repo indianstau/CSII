@@ -78,4 +78,4 @@ A. SVN 競合問題
 待補  
 SVN  Eclipse 改編碼  Debug  tomCat, JDK 對應verson解決方法  自動提示設定  
 To be continued..  
-[[HackMD](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lines)]  
+[HackMD]([https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lines](https://hackmd.io/)https://hackmd.io/)  

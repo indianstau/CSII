@@ -56,33 +56,16 @@ public class StaffSearchServlet extends HttpServlet{
 			if( "0".equals(jobStat[0]) ) {
 				//前0 退社Not null(有值) 離
 				jstat = "not Null";
-//				System.out.println(jobStat[0]+" not null 離職");
 			}else{
 				//前1 退社isNull  在職
 				jstat = "Null";
-//				System.out.println(jobStat[0]+" Null 在");
 	        }
 		}else {
 			// 兩選  兩不選
 			jstat = null;
-//			System.out.println(jobStat[0]+" Null值 選兩者");
 		}
-		// 1"null"字串  2比空字符""  3null
-//		System.out.println("null".equals(jstat));
-//		System.out.println("".equals(jstat));
-//		System.out.println(jstat==null);
 		
 		ArrayList<StaffDto> stfAl = stfDao.search(name, com, pjt, jstat);
-
-//		for(int i=0;i<sexAl.size();i++) {
-//			System.out.println(sexAl.get(i).getId());
-//		    System.out.println(comAl.get(0).getCom());
-//		}
-
-//		for(StaffOptComDto arr:comAl) {
-//			System.out.print(arr.getId());
-//			System.out.println(arr.getCom());
-//		}
 
 		req.setAttribute("comAl",comAl);
 		req.setAttribute("pjtAl",pjtAl);

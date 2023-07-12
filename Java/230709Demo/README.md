@@ -11,6 +11,8 @@
 2. input: radio select option checkbox 除了從後端撈出對應方法外？
 3. Dao 各method()  <> ArrayList array 更好的寫法
 4. date 預處理
+5. 不寫明碼  <a class="deleteBtn" href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>">削除</a>
+   外 JavaScript 寫法  ?.click()   ???  
   
 ------------------------  
 ### 筆記  與  

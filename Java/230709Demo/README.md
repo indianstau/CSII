@@ -57,7 +57,7 @@ console.log(btn); //複數
     //點哪裡都會顯示  
     //document.addEventListener('click', showDelMsg);    X  
     //window.addEventListener('click', showDelMsg);      X  
-  // element target -> a
+  // element target -> a  btn[0]~btn[13] ...  
 	btn.forEach(function (a){
 		a.addEventListener('click', showDelMsg);
 	});

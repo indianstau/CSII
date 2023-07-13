@@ -171,10 +171,10 @@
             <li><label for="EMAIL">メールアドレス</label>
 	        <input type="text" name="EMAIL" style="width: 400px;">
             </li>
-	　　　	<li><label for="WECHAT">WechatID</label>
+	　　<li><label for="WECHAT">WechatID</label>
                 <input type="text" name="WECHAT">
             </li>
-	　　　	<li><label for="LINE">LineID</label>
+	　　<li><label for="LINE">LineID</label>
                 <input type="text" name="LINE">
             </li>
 	</ul>

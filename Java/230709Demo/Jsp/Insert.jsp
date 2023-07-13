@@ -213,6 +213,7 @@
         </ul>
     </form>
 
+
 <script>
 	document.getElementById("current_date").innerHTML = Date();
 </script>

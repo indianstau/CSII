@@ -212,12 +212,11 @@
 			</li>
         </ul>
     </form>
-<!--
+
 <script>
-	//document.getElementById("current_date").innerHTML = Date();
+	document.getElementById("current_date").innerHTML = Date();
 </script>
 
--->
 
 </body>
 </html>

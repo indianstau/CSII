@@ -125,7 +125,7 @@ public class StaffInsertServlat extends HttpServlet {
 
 			request.getRequestDispatcher("/staffSearch.jsp").forward(request, response);
 		}catch(IllegalStateException le){
-		request.getRequestDispatcher("/staffSearch.jsp").forward(request, response);
-	}
+			request.getRequestDispatcher("/staffSearch.jsp").forward(request, response);
+		}
 	}
 }

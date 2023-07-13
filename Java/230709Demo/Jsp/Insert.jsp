@@ -72,10 +72,10 @@
             <li><label for="cusname">出身地</label>
             	<input type="text" name="SYUSSINN" style="width:620px;">
             </li>
-           	<li><label class="inline">配偶者有り無し 　　　　　
+            <li><label class="inline">配偶者有り無し 　　　　　
 			<input type="radio" name="HAIGUSYA" value="1" checked>有
 			<input type="radio" name="HAIGUSYA" value="2">無</label>
-		</li>
+	    </li>
 	</ul>
 
 	<h3>個人証明情報</h3>
@@ -188,27 +188,27 @@
             </li>
         </ul>
 
- 		<h3>学歴情報</h3><hr>
- 		<ul><li><label class="inline">職業種類
-				<select name="SAISYUU_GAKUREKI">
-			            <option value="1">大学院(博士)</option>
-			            <option value="2">大学(修士)</option>
-			            <option value="3">大学</option>
-			            <option value="4">短期大学</option>
-				</select></label>
-		     </li>
-		     <li><label for="GAKKOU_NAME">学校名</label>
-			 <input type="text" name="GAKKOU_NAME" style="width: 400px;">
-		     </li>
-		　　 <li><label for="SENNMOM_NAME">専門</label>
-			 <input type="text" name="SENNMOM_NAME" style="width: 400px;">
-		     </li>
-		     <li><label class="inline">卒業年月日　　 　　 　　 　
-			<input type="date" id="SOTUGYO_DATE" name="SOTUGYO_DATE" min="1980-06-01"></label>
-		     </li>
-		     <li style="text-align: center;">
-			<input type="submit" value="登錄" class="button" style="display: inline-block;border: none;font-size: 20px;border-radius: 4px;padding: 4px 16px;">
-		     </li>
+ 	<h3>学歴情報</h3><hr>
+ 	<ul><li><label class="inline">職業種類
+		<select name="SAISYUU_GAKUREKI">
+		    <option value="1">大学院(博士)</option>
+		    <option value="2">大学(修士)</option>
+		    <option value="3">大学</option>
+		    <option value="4">短期大学</option>
+		</select></label>
+	     </li>
+	     <li><label for="GAKKOU_NAME">学校名</label>
+		 <input type="text" name="GAKKOU_NAME" style="width: 400px;">
+	     </li>
+	     <li><label for="SENNMOM_NAME">専門</label>
+		 <input type="text" name="SENNMOM_NAME" style="width: 400px;">
+	     </li>
+	     <li><label class="inline">卒業年月日　　 　　 　　 　
+		<input type="date" id="SOTUGYO_DATE" name="SOTUGYO_DATE" min="1980-06-01"></label>
+	     </li>
+	     <li style="text-align: center;">
+		<input type="submit" value="登錄" class="button" style="display: inline-block;border: none;font-size: 20px;border-radius: 4px;padding: 4px 16px;">
+	     </li>
         </ul>
     </form>
 

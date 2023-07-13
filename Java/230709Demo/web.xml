@@ -31,5 +31,14 @@
 	<servlet-name>staffDelete</servlet-name>
 	<url-pattern>/staffDelete</url-pattern>
 </servlet-mapping>
+	
+<servlet>
+	<servlet-name>staffInsert</servlet-name>
+	<servlet-class>bms.staff.controller.StaffInsertServlat</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>staffInsert</servlet-name>
+	<url-pattern>/staffList</url-pattern>
+</servlet-mapping>
   
 </web-app>

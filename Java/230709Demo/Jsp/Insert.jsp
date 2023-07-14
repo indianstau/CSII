@@ -188,10 +188,10 @@
 
  		<h3>母国関連</h3>
 		<ul><li class="inline"><label for="other">住所</label>
-                <textarea name="BOKOKU_JYUSYO" cols="120" rows="5" style="margin-bottom:20px;"></textarea>
+                <textarea name="BOKOKU_JYUSYO" cols="120" rows="5"></textarea>
             </li>
 	　　　	<li class="inline"><label for="BOKOKU_KINNKYUU_RENNRAKU">緊急連絡先</label>
-                <textarea name="BOKOKU_KINNKYUU_RENNRAKU" cols="120" rows="5"></textarea>
+                <textarea name="BOKOKU_KINNKYUU_RENNRAKU" cols="120" rows="5" style="margin-top:20px;"></textarea>
             </li>
         </ul>
 

@@ -124,7 +124,7 @@ if(alStf != null){
                 <a href="/bmsweb/staffUpdate?id=<%=dto.getSyain_id() %>" style="background-color: lightblue;">更新</a>&nbsp;&nbsp;
 			<!--  path & xml 一致  不要寫明碼！-->
 		<a class="deleteBtn" href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>">削除</a>
-<!--                <a href="/bmsweb/staffDelete?id=<%--=dto.getSyain_id() --%>" style="background-color: pink;">削除</a>   -->
+<!--                <a href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>" style="background-color: pink;">削除</a>   -->
             </td>
         </tr>
 <% }} %>

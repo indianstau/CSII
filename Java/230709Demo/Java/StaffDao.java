@@ -159,18 +159,25 @@ public class StaffDao extends CommonDAO{
 
 					// 社員データを登録するSQL文を用意
 					String sql = "INSERT INTO syain_main VALUES(NULL,'" + staffInsertDto.getFIRST_NAME_KANJI() + "','"
-							+ staffInsertDto.getLAST_NAME_KANJI() + "','" + staffInsertDto.getFIRST_NAME_KANA() + "','" + staffInsertDto.getLAST_NAME_KANA() + "','"
-							+ staffInsertDto.getFIRST_NAME_EIGO() + "','" + staffInsertDto.getLAST_NAME_EIGO() + "','" + staffInsertDto.getSEIBETU() + "','"
-							+ staffInsertDto.getTANJYOBI() + "','" + staffInsertDto.getKOKUSEKI() + "','"  + staffInsertDto.getSYUSSINN() + "','" + staffInsertDto.getHAIGUSYA() + "','"
-							+ staffInsertDto.getPASSPORT_NUM() + "','" + staffInsertDto.getPASSPORT_END_DATE() + "','" + staffInsertDto.getVISA_KIKAN() + "','"
-							+ staffInsertDto.getVISA_END_DATE() + "','" + staffInsertDto.getZAIRYU_SIKAKU() + "','" + staffInsertDto.getKOJIN_NUM() + "','"
-							+ staffInsertDto.getZAIRYU_NUM() + "','" + staffInsertDto.getSYOZOKU_KAISYA() +"','" +staffInsertDto.getNYUUSYA_DATE() + "','"
-							+ staffInsertDto.getTAISYA_DATE() + "','" + staffInsertDto.getSYOKUGYO_KIND() + "','" + staffInsertDto.getRAINITI_DATE() + "','"
-							+ staffInsertDto.getBIKOU() + "','" + staffInsertDto.getYUUBIN() + "','" + staffInsertDto.getJYUSYO_1() + "','"
-							+ staffInsertDto.getJYUSYO_2() + "','" + staffInsertDto.getMOYORI_EKI() + "','" + staffInsertDto.getTEL() + "','" + staffInsertDto.getEMAIL() + "','"
-							+ staffInsertDto.getWECHAT() + "','" + staffInsertDto.getLINE() + "','" + staffInsertDto.getBOKOKU_JYUSYO() + "','"
-							+ staffInsertDto.getBOKOKU_KINNKYUU_RENNRAKU() + "','" + staffInsertDto.getSAISYUU_GAKUREKI() + "','" + staffInsertDto.getGAKKOU_NAME() + "','"
-							+ staffInsertDto.getSENNMOM_NAME() + "','" + staffInsertDto.getSOTUGYO_DATE() +"',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)";
+							+ staffInsertDto.getLAST_NAME_KANJI() + "','" + staffInsertDto.getFIRST_NAME_KANA() + "','" 
+							+ staffInsertDto.getLAST_NAME_KANA() + "','" + staffInsertDto.getFIRST_NAME_EIGO() 
+							+ "','" + staffInsertDto.getLAST_NAME_EIGO() + "','" + staffInsertDto.getSEIBETU() + "','"
+							+ staffInsertDto.getTANJYOBI() + "','" + staffInsertDto.getKOKUSEKI() + "','" 
+							+ staffInsertDto.getSYUSSINN() + "','" + staffInsertDto.getHAIGUSYA() + "','"
+							+ staffInsertDto.getPASSPORT_NUM() + "','" + staffInsertDto.getPASSPORT_END_DATE() + "','" 
+							+ staffInsertDto.getVISA_KIKAN() + "','" + staffInsertDto.getVISA_END_DATE() + "','" 
+							+ staffInsertDto.getZAIRYU_SIKAKU() + "','" + staffInsertDto.getKOJIN_NUM() + "','"
+							+ staffInsertDto.getZAIRYU_NUM() + "','" + staffInsertDto.getSYOZOKU_KAISYA() +"','" 
+							+ staffInsertDto.getNYUUSYA_DATE() + "','" + staffInsertDto.getTAISYA_DATE() + "','" 
+							+ staffInsertDto.getSYOKUGYO_KIND() + "','" + staffInsertDto.getRAINITI_DATE() + "','"
+							+ staffInsertDto.getBIKOU() + "','" + staffInsertDto.getYUUBIN() + "','" 
+							+ staffInsertDto.getJYUSYO_1() + "','" + staffInsertDto.getJYUSYO_2() 
+							+ "','" + staffInsertDto.getMOYORI_EKI() + "','" + staffInsertDto.getTEL() 
+							+ "','" + staffInsertDto.getEMAIL() + "','" + staffInsertDto.getWECHAT() + "','" 
+							+ staffInsertDto.getLINE() + "','" + staffInsertDto.getBOKOKU_JYUSYO() + "','"
+							+ staffInsertDto.getBOKOKU_KINNKYUU_RENNRAKU() + "','" + staffInsertDto.getSAISYUU_GAKUREKI() + "','" 
+							+ staffInsertDto.getGAKKOU_NAME() + "','" + staffInsertDto.getSENNMOM_NAME() + "','" 
+							+ staffInsertDto.getSOTUGYO_DATE() +"',NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)";
 
 					// SQL文を発行
 					executeUpdate(sql);

@@ -60,7 +60,7 @@ public class StaffDao extends CommonDAO{
 					+ ",CONCAT(syain_main.first_name_kanji, '',syain_main.LAST_NAME_KANJI) as name "
 					+ "FROM syain_main JOIN m_sex ON syain_main.SEIBETU = m_sex.id "
 					+ "JOIN kind ON syain_main.SYOKUGYO_KIND = kind.id "
-					+ "JOIN syo ON syain_main.syozoku_kaisya = syo.id";
+					+ "JOIN syo ON syain_main.syozoku_kaisya = syo.id order by syain_id";
 			ResultSet rs = executeQuery(sql);
 			ArrayList<StaffDto> stfAl = new ArrayList<StaffDto>();
 
@@ -96,7 +96,7 @@ public class StaffDao extends CommonDAO{
 					+ "FROM syain_main JOIN m_sex ON syain_main.SEIBETU = m_sex.id "
 					+ "JOIN kind ON syain_main.SYOKUGYO_KIND = kind.id "
 					+ "JOIN syo ON syain_main.syozoku_kaisya = syo.id "
-					+ "having name LIKE '%" + name + "%'";
+					+ "having name LIKE '%" + name + "%' order by syain_id";
 
 			String comStr = " AND com = '" + com + "'";
 			String pjtStr = " AND pjt = '" + pjt + "'";

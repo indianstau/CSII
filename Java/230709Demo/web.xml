@@ -20,7 +20,7 @@
 </servlet>
 <servlet-mapping>
 		<servlet-name>staffSearch</servlet-name>
-		<url-pattern>/staffSearch</url-pattern>
+		<url-pattern>/StaffSearch</url-pattern>
 </servlet-mapping>
 	
 <servlet>

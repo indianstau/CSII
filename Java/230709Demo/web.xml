@@ -40,5 +40,14 @@
 	<servlet-name>staffInsert</servlet-name>
 	<url-pattern>/staffList</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>staffUpdate</servlet-name>
+	<servlet-class>bms.staff.controller.StaffUpdateServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>staffUpdate</servlet-name>
+	<url-pattern>/staffUpdate</url-pattern>
+</servlet-mapping>
   
 </web-app>

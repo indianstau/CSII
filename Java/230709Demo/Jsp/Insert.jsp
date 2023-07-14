@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>社內統合管理システム</title>
 <style>
-    body{margin: 0;}
     h1{text-align: center;}
 
     a{padding-right: 4px;}
@@ -15,14 +14,23 @@
     h2{background-color: rgb(204, 211, 212);}
     hr{color: blue;}
 
-
     ul{list-style: none;font-size: 14px;}
     li{margin-bottom:1%}
     label{
         width: 12%;
         display: inline-block;
     }
+    form{margin-bottom:10%;}
     .inline{display:inline;}
+    .btn{
+    	display: inline-block;
+    	border: none;
+    	font-size: 22px;
+    	border-radius: 4px;
+    	padding: 8px 30px;
+    	margin-top:100px;
+    	background-color:lightgreen;
+    }
 </style>
 </head>
 <body>
@@ -39,18 +47,18 @@
 
     <form action="/bmsweb/staffList" method="post">
         <ul><li><label for="syainmei">社員名(漢字)</label>
-                姓<input type="text" name="FIRST_NAME_KANJI" required="required" style="width: 60px;">
-                名<input type="text" name="LAST_NAME_KANJI" required="required" style="width: 60px;">
+                姓<input type="text" name="FIRST_NAME_KANJI" style="width: 60px;">
+                名<input type="text" name="LAST_NAME_KANJI" style="width: 60px;">
                 <span style="color: red;">必須</span>
             </li>
             <li><label for="katakana"><nobr>社員名(カタカナ)</nobr></label>
-                セイ<input type="text" name="FIRST_NAME_KANA" required="required" style="width: 60px;">
-                メイ<input type="text" name="LAST_NAME_KANA" required="required" style="width: 60px;">
+                セイ<input type="text" name="FIRST_NAME_KANA" style="width: 60px;">
+                メイ<input type="text" name="LAST_NAME_KANA" style="width: 60px;">
                 <span style="color: red;">必須</span>
             </li>
             <li><label for="cusname"><nobr>社員名(英語)</nobr></label>
-                first name<input type="text" name="FIRST_NAME_EIGO" required="required" style="width: 60px;">
-                last name<input type="text" name="LAST_NAME_EIGO" required="required" style="width: 60px;">
+                first name<input type="text" name="FIRST_NAME_EIGO" style="width: 60px;">
+                last name<input type="text" name="LAST_NAME_EIGO" style="width: 60px;">
                 <span style="color: red;">必須</span>
             </li>
             <li><label class="inline">性別　　　 　　 　　　　　
@@ -61,7 +69,7 @@
 				<input type="date" id="start" name="TANJYOBI" min="1950-01-01"></label>
             </li>
             <li><label class="inline">国籍
-            	<select name="KOKUSEKI" style="margin-left:20px;">
+            	<select name="KOKUSEKI" style="margin-left:150px;">
                     <option value="1">日本</option>
                     <option value="2">中国</option>
                     <option value="3">台湾</option>
@@ -80,7 +88,7 @@
 
 		<h3>個人証明情報</h3>
  		<ul><li><label for="passport" class="inline">パスポート番号
-				<input type="text" name="PASSPORT_NUM"></label>
+				<input type="text" name="PASSPORT_NUM" style="margin-left:80px;"></label>
             </li>
             <li><label class="inline">パスポート有効日　 　 　 　
 				<input type="date" id="start" name="PASSPORT_END_DATE" min="2012-01-01"></label>
@@ -112,7 +120,7 @@
             </li>
             <li>
 			<li><label for="ZAIRYU_NUM" class="inline">在留番号
-     　 　 　 　　<input type="text" name="ZAIRYU_NUM"></label>
+     　 　 　 　　<input type="text" name="ZAIRYU_NUM" style="margin-left: 42px;"></label>
 			</li>
 		</ul>
 
@@ -144,7 +152,7 @@
 	        <li><label class="inline">来日時期　　　 　　 　　 　
 	            <input type="date" id="start" name="RAINITI_DATE" min="2000-01-01"></label>
 	        </li>
-	    　　 <li><label for="BIKOU" class="inline">備考</label>
+	    　　 <li><label for="BIKOU" class="inline" style="margin-right:150px;">備考</label>
                 <textarea name="BIKOU" cols="110" rows="3"></textarea>
 			</li>
 		</ul>
@@ -180,7 +188,7 @@
 
  		<h3>母国関連</h3>
 		<ul><li class="inline"><label for="other">住所</label>
-                <textarea name="BOKOKU_JYUSYO" cols="120" rows="5"></textarea>
+                <textarea name="BOKOKU_JYUSYO" cols="120" rows="5" style="margin-bottom:20px;"></textarea>
             </li>
 	　　　	<li class="inline"><label for="BOKOKU_KINNKYUU_RENNRAKU">緊急連絡先</label>
                 <textarea name="BOKOKU_KINNKYUU_RENNRAKU" cols="120" rows="5"></textarea>
@@ -190,7 +198,7 @@
  		<h3>学歴情報</h3><hr>
  		<ul>
 			<li><label class="inline">職業種類
-					<select name="SAISYUU_GAKUREKI">
+					<select name="SAISYUU_GAKUREKI" style="margin-left: 120px;">
 			            <option value="1">大学院(博士)</option>
 			            <option value="2">大学(修士)</option>
 			            <option value="3">大学</option>
@@ -204,10 +212,10 @@
 				<input type="text" name="SENNMOM_NAME" style="width: 400px;">
 			</li>
 			<li><label class="inline">卒業年月日　　 　　 　　 　
-				<input type="date" id="SOTUGYO_DATE" name="SOTUGYO_DATE" min="1980-06-01"></label>
+				<input type="date" id="SOTUGYO_DATE" name="SOTUGYO_DATE" min="1980-06-01"></label><br/>
 			</li>
 			<li style="text-align: center;">
-				<input type="submit" value="登錄" class="button" style="display: inline-block;border: none;font-size: 20px;border-radius: 4px;padding: 4px 16px;">
+				<input type="submit" value="登錄" class="btn">
 			</li>
         </ul>
     </form>
@@ -220,4 +228,3 @@
 
 </body>
 </html>
-<!-- 為什麼  你在Eclipes 是工整   上來就亂了！ -->

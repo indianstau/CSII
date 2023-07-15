@@ -96,7 +96,7 @@ public class StaffDao extends CommonDAO{
 					+ "FROM syain_main JOIN m_sex ON syain_main.SEIBETU = m_sex.id "
 					+ "JOIN kind ON syain_main.SYOKUGYO_KIND = kind.id "
 					+ "JOIN syo ON syain_main.syozoku_kaisya = syo.id "
-					+ "having name LIKE '%" + name + "%' order by syain_id";
+					+ "having name LIKE '%" + name + "%'";
 
 			String comStr = " AND com = '" + com + "'";
 			String pjtStr = " AND pjt = '" + pjt + "'";

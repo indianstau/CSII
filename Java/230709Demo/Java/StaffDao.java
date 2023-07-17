@@ -235,7 +235,7 @@ public class StaffDao extends CommonDAO{
 	                "GAKKOU_NAME = '" + staffUpdateDto.getGAKKOU_NAME() + "', " +
 	                "SENNMOM_NAME = '" + staffUpdateDto.getSENNMOM_NAME() + "', " +
 	                "SOTUGYO_DATE = '" + staffUpdateDto.getSOTUGYO_DATE() + "' " +
-	                "WHERE ID = " + staffUpdateDto.getSYAIN_ID();
+	                "WHERE SYAIN_ID = " + staffUpdateDto.getSYAIN_ID();
 
 	        // SQL文を発行
 	        executeUpdate(sql);

@@ -1,321 +1,159 @@
-<%@page import="bms.staff.dto.*"%>
-<%@page import="java.util.*"%>
-<%@page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html lang="jp">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>社內統合管理システム</title>
-<style>
-    h1{text-align: center;}
+package bms.staff.controller;
 
-    a{padding-right: 4px;}
-    h2, h3{padding: 4px;}
-    h2{background-color: rgb(204, 211, 212);}
-    hr{color: blue;}
+import java.io.IOException;
+import java.util.ArrayList;
 
-    ul{list-style: none;font-size: 14px;}
-    li{margin-bottom:1%}
-    label{
-        width: 12%;
-        display: inline-block;
-    }
-    form{margin-bottom:10%;}
-    .inline{display:inline;}
-    .btn{
-    	display: inline-block;
-    	border: none;
-    	font-size: 22px;
-    	border-radius: 4px;
-    	padding: 8px 30px;
-    	margin-top:100px;
-    	background-color:lightgreen;
-    }
-</style>
-</head>
-<body>
-    <h1>社內統合管理システム</h1>
-    <div><a href="/bmsweb/menu.jsp" style="margin-right:3%;">
-    		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
-    <p class="inline">登録日時:
-    	<span id="current_date"></span>
-    	<a href="staffSearch.jsp">回上一頁</a>
-   	</p>
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
- <!--       <div style="text-align: right">ユ－ザ名:**-->
- 		    <!-- 這裡抓取 -->　
- <!-- 		権限:ALL<a href="StaffList" >社員管理画面へ</div></a></p>-->
- 		    <!-- 這裡抓取 -->
-
-    <h2><span style="color: rgb(20, 156, 215);">　　■</span>社員登録</h2>
-    <h3>基本情報</h3><hr>
-
-<%
-	StaffInsertDto stfIdto = (StaffInsertDto)request.getAttribute("keyStaff");
-	ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
-	ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
-	
-%>
-
-    <form action="/bmsweb/staffUpdate" method="post">
-        <ul>
-        	<li>
-        		<label for="id"></label>
-        		<input type="text" name="id" style="display:none;" value="<%=stfIdto.getSYAIN_ID() %>">
-        	</li>
-        	<li><label for="syainmei">社員名(漢字)</label>
-                姓<input type="text" name="FIRST_NAME_KANJI" style="width: 60px;" value="<%=stfIdto.getFIRST_NAME_KANJI() %>">
-                名<input type="text" name="LAST_NAME_KANJI" style="width: 60px;" value="<%=stfIdto.getLAST_NAME_KANJI() %>">
-                <span style="color: red;">必須</span>
-            </li>
-            <li><label for="katakana"><nobr>社員名(カタカナ)</nobr></label>
-                セイ<input type="text" name="FIRST_NAME_KANA" style="width: 60px;" value="<%=stfIdto.getFIRST_NAME_KANA() %>">
-                メイ<input type="text" name="LAST_NAME_KANA" style="width: 60px;" value="<%=stfIdto.getLAST_NAME_KANA() %>">
-                <span style="color: red;">必須</span>
-            </li>
-            <li><label for="cusname"><nobr>社員名(英語)</nobr></label>
-                first name<input type="text" name="FIRST_NAME_EIGO" style="width: 60px;" value="<%=stfIdto.getFIRST_NAME_EIGO() %>">
-                last name<input type="text" name="LAST_NAME_EIGO" style="width: 60px;" value="<%=stfIdto.getLAST_NAME_EIGO() %>">
-                <span style="color: red;">必須</span>
-            </li>
-            <li><label class="inline">性別　　　 　　 　　　
-				<span id="seb" style="display:none;"><%=stfIdto.getSEIBETU() %></span>　　
-                <input type="radio" name="SEIBETU" value="1">男
-           　　  <input type="radio" name="SEIBETU" value="2">女</label>
-            </li>
-            <li><label class="inline">誕生日　　 　 　　 　　　　
-				<input type="date" name="TANJYOBI" min="1950-01-01" value="<%=stfIdto.getTANJYOBI() %>"></label>
-            </li>
-            <li><label class="inline">国籍
-            	<span id="kok" style="display:none;"><%=stfIdto.getKOKUSEKI() %></span>　
-            	<select name="KOKUSEKI" style="margin-left:150px;">
-            		<option value="0"></option>
-                    <option value="1">日本</option>
-                    <option value="2">中国</option>
-                    <option value="3">台湾</option>
-                    <option value="4">韓国</option>
-                    <option value="5">アメリカ</option>
-                </select></label>
-            </li>
-            <li><label for="cusname">出身地</label>
-            	<input type="text" name="SYUSSINN" style="width:620px;" value="<%=stfIdto.getSYUSSINN() %>">
-            </li>
-           	<li><label class="inline">配偶者有り無し 　　　
-           		<span id="hai" style="display:none;"><%=stfIdto.getHAIGUSYA() %></span>　　　　
-				<input type="radio" name="HAIGUSYA" value="1">有
-				<input type="radio" name="HAIGUSYA" value="2">無</label>
-			</li>
-		</ul>
-
-		<h3>個人証明情報</h3>
- 		<ul><li><label for="passport" class="inline">パスポート番号
-				<input type="text" name="PASSPORT_NUM" style="margin-left:80px;" value="<%=stfIdto.getPASSPORT_NUM() %>"></label>
-            </li>
-            <li><label class="inline">パスポート有効日　 　 　 　
-				<input type="date" name="PASSPORT_END_DATE" min="2012-01-01" value="<%=stfIdto.getPASSPORT_END_DATE() %>"></label>
-            </li>
-            <li><label class="inline">ビザ期限　　　　
-            	<span id="vis" style="display:none;"><%=stfIdto.getVISA_KIKAN() %></span>　　   　 　 　　
-				<select name="VISA_KIKAN">
-					<option value="0"></option>
-                    <option value="1">１年</option>
-                    <option value="2">３年</option>
-                    <option value="3">５年</option>
-                    <option value="4">１０年</option>
-                    <option value="5">無期限</option>
-                </select></label>
-            </li>
-            <li><label class="inline">ビザ有効日　　 　　 　　 　
-				<input type="date" name="VISA_END_DATE" min="2013-06-01" value="<%=stfIdto.getVISA_END_DATE() %>"></label>
-            </li>
-            <li><label class="inline">在留資格名称　 　
-            	<span id="zai" style="display:none;"><%=stfIdto.getZAIRYU_SIKAKU() %></span> 　 　　　
-				<select name="ZAIRYU_SIKAKU">
-					<option value="0"></option>
-                    <option value="1">技術・人文知識・国際業務</option>
-                    <option value="2">特定活動(ワーキングなど</option>
-                    <option value="3">家族滞在</option>
-                    <option value="4">永住者の配偶者等</option>
-                    <option value="5">日本人の配偶者等</option>
-                    <option value="6">永住者</option>
-                </select></label>
-            </li>
-            <li><label for="KOJIN_NUM" class="inline">マイナンバー
-    　 　　　 　 　<input type="text" name="KOJIN_NUM" value="<%=stfIdto.getKOJIN_NUM() %>"></label>
-            </li>
-            <li>
-			<li><label for="ZAIRYU_NUM" class="inline">在留番号
-     　 　 　 　　<input type="text" name="ZAIRYU_NUM" style="margin-left: 42px;" value="<%=stfIdto.getZAIRYU_NUM() %>"></label>
-			</li>
-		</ul>
-		
-        <h3>会社関連情報</h3><hr>
-        <ul><li><label class="inline">所属会社　　
-            　 　<select name="SYOZOKU_KAISYA" style="margin-left: 60px;">
-            		<option value="0"></option>
-<%  
-	int syoSya = stfIdto.getSYOZOKU_KAISYA();
-	if(alCom != null){
-	for(StaffOptComDto arr:alCom){
-%>         			
-					<option value="<%=arr.getId() %>" <%=syoSya==arr.getId()?"selected":"" %>><%=arr.getCom() %></option>
-<% }} %>   	    </select>
-        　 　 　 　　　
-<!--     <select name="SYOZOKU_KAISYA">
-	                <option value="1">株式会社シエス</option>
-	                <option value="2">株式会社ブサンド</option>
-	                <option value="3">株式会社なすみ</option>
-            	</select>
- -->
-            	</label>
-        	</li>
-        	<li><label class="inline">入社日　　　　 　　 　　 　
-            	<input type="date" name="NYUUSYA_DATE" min="2000-01-01" value="<%=stfIdto.getNYUUSYA_DATE() %>"></label>
-        	</li>
-        	<li><label for="TAISYA_DATE">退社日</label>
-           		<input type="text" name="TAISYA_DATE" style="width: 160px;" value="<%=stfIdto.getTAISYA_DATE() %>">
-            	<span style="color: red;">※YYYY-MM-DD</span>
-        	</li>
-
-	        <li><label class="inline">職業種類　　　 　 　 　　　
-	            <select name="SYOKUGYO_KIND">
-	            	<option value="0"></option>
-<%  int syoKin = stfIdto.getSYOKUGYO_KIND();
-	if(alPjt != null){
-	for(StaffOptPjtDto arr:alPjt){
-%>         		<option value="<%=arr.getId() %>" <%=syoKin == arr.getId()?"selected":"" %>>
-							   <%=arr.getPjt() %></option>
-<% }} %>  
-<!--                  <option value="1">役員</option>
-	                <option value="2">総務</option>
-	                <option value="3">IT営業</option>
-	                <option value="4">ITエンジニア</option>
-	                <option value="5">不動産スタッフ</option>
-	                <option value="6">個人事業主</option>  -->	
-	            </select>
-
-	            </label>
-	        </li>
-	        <li><label class="inline">来日時期　　　 　　 　　 　
-	            <input type="date" name="RAINITI_DATE" min="2000-01-01" value="<%=stfIdto.getRAINITI_DATE() %>"></label>
-	        </li>
-	    　　 <li><label for="BIKOU" class="inline" style="margin-right:150px;">備考</label>
-                <textarea name="BIKOU" cols="110" rows="3"><%=stfIdto.getBIKOU() %></textarea>
-			</li>
-		</ul>
-
-    	<h3>連絡先</h3><hr>
-    	<ul><li><label for="addsArea">住所</label>〒&nbsp; &nbsp;
-            	<input type="text" name="YUUBIN" style="width: 100px;" value="<%=stfIdto.getYUUBIN() %>">
-            </li>
-            <li><label for="addsRoad"></label>
-	            <input type="text" name="JYUSYO_1" style="width: 400px;" value="<%=stfIdto.getJYUSYO_1() %>">
-	            <span style="color: black;">番地まで</span><br/>
-            </li>
-            <li><label for="addsRoom"></label>
-	            <input type="text" name="JYUSYO_2" style="width: 400px;" value="<%=stfIdto.getJYUSYO_2() %>">
-	            <span style="color: black;">マンション名.号室など</span><br/>
-            </li>
-            <li><label for="MOYORI_EKI">最寄駅</label>
-	            <input type="text" name="MOYORI_EKI" value="<%=stfIdto.getMOYORI_EKI() %>">
-            </li>
-            <li><label for="TEL">携帯電話</label>
-	            <input type="text" name="TEL" value="<%=stfIdto.getTEL() %>">
-            </li>
-            <li><label for="EMAIL">メールアドレス</label>
-	            <input type="text" name="EMAIL" style="width: 400px;" value="<%=stfIdto.getEMAIL() %>">
-            </li>
-	　　　	<li><label for="WECHAT">WechatID</label>
-                <input type="text" name="WECHAT" value="<%=stfIdto.getWECHAT() %>">
-            </li>
-	　　　	<li><label for="LINE">LineID</label>
-                <input type="text" name="LINE" value="<%=stfIdto.getLINE() %>">
-            </li>
-		</ul>
-
- 		<h3>母国関連</h3>
-		<ul><li class="inline"><label for="other">住所</label>
-                <textarea name="BOKOKU_JYUSYO" cols="120" rows="5" style="margin-bottom:20px;"><%=stfIdto.getBOKOKU_JYUSYO() %></textarea>
-            </li>
-	　　　	<li class="inline"><label for="BOKOKU_KINNKYUU_RENNRAKU">緊急連絡先</label>
-                <textarea name="BOKOKU_KINNKYUU_RENNRAKU" cols="120" rows="5"><%=stfIdto.getBOKOKU_KINNKYUU_RENNRAKU() %></textarea>
-            </li>
-        </ul>
-
- 		<h3>学歴情報</h3><hr>
- 		<ul>
-			<li><label class="inline">職業種類
-					<span id="sgi" style="display:none;"><%=stfIdto.getSAISYUU_GAKUREKI() %></span>
-					<select name="SAISYUU_GAKUREKI" style="margin-left: 120px;">
-						<option value="0"></option>
-			            <option value="1">大学院(博士)</option>
-			            <option value="2">大学(修士)</option>
-			            <option value="3">大学</option>
-			            <option value="4">短期大学</option>
-				</select></label>
-			</li>
-			<li><label for="GAKKOU_NAME">学校名</label>
-				<input type="text" name="GAKKOU_NAME" style="width: 400px;" value="<%=stfIdto.getGAKKOU_NAME() %>">
-			</li>
-		　　 <li><label for="SENNMOM_NAME">専門</label>
-				<input type="text" name="SENNMOM_NAME" style="width: 400px;" value="<%=stfIdto.getSENNMOM_NAME() %>">
-			</li>
-			<li><label class="inline">卒業年月日　　 　　 　　 　
-				<input type="date" name="SOTUGYO_DATE" min="1980-06-01" value="<%=stfIdto.getSOTUGYO_DATE() %>"></label><br/>
-			</li>
-			<li style="text-align: center;">
-				<input type="submit" value="更新" class="btn">
-			</li>
-        </ul>
-    </form>
+import bms.staff.dao.StaffDao;
+import bms.staff.dto.StaffDto;
+import bms.staff.dto.StaffInsertDto;
+import bms.staff.dto.StaffOptComDto;
+import bms.staff.dto.StaffOptPjtDto;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 
-<script>
-	document.getElementById("current_date").innerHTML = Date();
+public class StaffUpdateServlet extends HttpServlet {
 
-	// Radio
-	// 性別      Id ("seb") value  ;  Name("SEIBETU")          tar
-	// 有沒配偶   Id ("hai") value  ;  Name("HAIGUSYA")         tar
-	
-	// select option
-	// 學歷      Id("sgi")  value  ;  Name("SAISYUU_GAKUREKI") tar
-	
-	// a[0].type
-	function valueOn(tar,value){
-		var a = document.getElementById(value);
-		var b = document.getElementsByName(tar);
-		
-		// type 不是radio時
-		if(b[0].type!="radio"){
-			b = b[0];
-		}
-		
-		for(var i=0; i<b.length; i++){
-			if(b[i].value==a.textContent){
-				if(b[0].type=="radio"){
-					b[i].checked = true;
-				}else{
-					b[i].selected = true;
-				}
-			}
-		}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+		// 入力データの文字コードの指定
+		request.setCharacterEncoding("UTF-8");
+
+		// GET送信データ（ISBN番号）の取得
+		String SYAIN_ID = request.getParameter("id");
+
+		//System.out.println(SYAIN_ID);
+
+		// データベースアクセス用オブジェクトの生成
+		StaffDao objDao = new StaffDao();
+
+		ArrayList<StaffOptComDto> comAl = objDao.getComValue();
+		ArrayList<StaffOptPjtDto> pjtAl = objDao.getPjtValue();
+
+
+//		request.getRequestDispatcher("/Insert.jsp").forward(request,response);
+
+		// 指定したISBN番号の書籍データを取得する命令を呼び出し、戻り値を取得する
+		StaffInsertDto staffDto = objDao.selectBySyainId(SYAIN_ID);
+
+		// 書籍データをリクエストスコープに格納
+		request.setAttribute("keyStaff", staffDto);
+		request.setAttribute("comAl",comAl);
+		request.setAttribute("pjtAl",pjtAl);
+
+		// JSPファイルに遷移する
+		request.getRequestDispatcher("/update.jsp").forward(request, response);
+
+
 	}
-	
-	valueOn("SEIBETU","seb");
-	valueOn("HAIGUSYA","hai");
-	
-	valueOn("SAISYUU_GAKUREKI","sgi");
-	valueOn("ZAIRYU_SIKAKU","zai");
-	valueOn("VISA_KIKAN","vis");
-	valueOn("KOKUSEKI","kok");
-	
-	//資格, Visa limlt, 国籍
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-</script>
+		// 入力データの文字コードの指定
+		request.setCharacterEncoding("UTF-8");
 
+		// POST送信データの取得
+		String SYAIN_ID = request.getParameter("id");
+		String FIRST_NAME_KANJI = request.getParameter("FIRST_NAME_KANJI");
+		String LAST_NAME_KANJI = request.getParameter("LAST_NAME_KANJI");
+		String FIRST_NAME_KANA = request.getParameter("FIRST_NAME_KANA");
+		String LAST_NAME_KANA = request.getParameter("LAST_NAME_KANA");
+		String FIRST_NAME_EIGO = request.getParameter("FIRST_NAME_EIGO");
+		String LAST_NAME_EIGO = request.getParameter("LAST_NAME_EIGO");
+		String SEIBETU = request.getParameter("SEIBETU");
+		String TANJYOBI = request.getParameter("TANJYOBI");
+		String KOKUSEKI = request.getParameter("KOKUSEKI");
+		String SYUSSINN = request.getParameter("SYUSSINN");
+		String HAIGUSYA = request.getParameter("HAIGUSYA");
+		String PASSPORT_NUM = request.getParameter("PASSPORT_NUM");
+		String PASSPORT_END_DATE = request.getParameter("PASSPORT_END_DATE");
+		String VISA_KIKAN = request.getParameter("VISA_KIKAN");
+		String VISA_END_DATE = request.getParameter("VISA_END_DATE");
+		String ZAIRYU_SIKAKU = request.getParameter("ZAIRYU_SIKAKU");
+		String KOJIN_NUM = request.getParameter("KOJIN_NUM");
+		String ZAIRYU_NUM = request.getParameter("ZAIRYU_NUM");
+		String SYOZOKU_KAISYA = request.getParameter("SYOZOKU_KAISYA");
+		String NYUUSYA_DATE = request.getParameter("NYUUSYA_DATE");
+		String TAISYA_DATE = request.getParameter("TAISYA_DATE");
+		String SYOKUGYO_KIND = request.getParameter("SYOKUGYO_KIND");
+		String RAINITI_DATE = request.getParameter("RAINITI_DATE");
+		String BIKOU = request.getParameter("BIKOU");
+		String YUUBIN = request.getParameter("YUUBIN");
+		String JYUSYO_1 = request.getParameter("JYUSYO_1");
+		String JYUSYO_2 = request.getParameter("JYUSYO_2");
+		String MOYORI_EKI = request.getParameter("MOYORI_EKI");
+		String TEL = request.getParameter("TEL");
+		String EMAIL = request.getParameter("EMAIL");
+		String WECHAT = request.getParameter("WECHAT");
+		String LINE = request.getParameter("LINE");
+		String BOKOKU_JYUSYO = request.getParameter("BOKOKU_JYUSYO");
+		String BOKOKU_KINNKYUU_RENNRAKU = request.getParameter("BOKOKU_KINNKYUU_RENNRAKU");
+		String SAISYUU_GAKUREKI = request.getParameter("SAISYUU_GAKUREKI");
+		String GAKKOU_NAME = request.getParameter("GAKKOU_NAME");
+		String SENNMOM_NAME = request.getParameter("SENNMOM_NAME");
+		String SOTUGYO_DATE = request.getParameter("SOTUGYO_DATE");
 
-</body>
-</html>
+		// 更新処理に渡すデータをBookオブジェクトに格納してまとめる
+		StaffInsertDto staffIDto = new StaffInsertDto();
+
+		staffIDto.setSYAIN_ID(Integer.parseInt(SYAIN_ID));
+		staffIDto.setFIRST_NAME_KANJI(FIRST_NAME_KANJI);
+		staffIDto.setLAST_NAME_KANJI(LAST_NAME_KANJI);
+		staffIDto.setFIRST_NAME_KANA(FIRST_NAME_KANA);
+		staffIDto.setLAST_NAME_KANA(LAST_NAME_KANA);
+		staffIDto.setFIRST_NAME_EIGO(FIRST_NAME_EIGO);
+		staffIDto.setLAST_NAME_EIGO(LAST_NAME_EIGO);
+		staffIDto.setSEIBETU(Integer.parseInt(SEIBETU));
+		staffIDto.setTANJYOBI(java.sql.Date.valueOf(TANJYOBI));
+		staffIDto.setKOKUSEKI(Integer.parseInt(KOKUSEKI));
+		staffIDto.setSYUSSINN(SYUSSINN);
+		staffIDto.setHAIGUSYA(Integer.parseInt(HAIGUSYA));
+		staffIDto.setPASSPORT_NUM(PASSPORT_NUM);
+		staffIDto.setPASSPORT_END_DATE(java.sql.Date.valueOf(PASSPORT_END_DATE));
+		staffIDto.setVISA_KIKAN(Integer.parseInt(VISA_KIKAN));
+		staffIDto.setVISA_END_DATE(java.sql.Date.valueOf(VISA_END_DATE));
+		staffIDto.setZAIRYU_SIKAKU(Integer.parseInt(ZAIRYU_SIKAKU));
+		staffIDto.setKOJIN_NUM(KOJIN_NUM);
+		staffIDto.setZAIRYU_NUM(ZAIRYU_NUM);
+		staffIDto.setSYOZOKU_KAISYA(Integer.parseInt(SYOZOKU_KAISYA));
+		staffIDto.setNYUUSYA_DATE(java.sql.Date.valueOf(NYUUSYA_DATE));
+		staffIDto.setTAISYA_DATE(java.sql.Date.valueOf(TAISYA_DATE));
+		staffIDto.setSYOKUGYO_KIND(Integer.parseInt(SYOKUGYO_KIND));
+		staffIDto.setRAINITI_DATE(java.sql.Date.valueOf(RAINITI_DATE));
+		staffIDto.setBIKOU(BIKOU);
+		staffIDto.setYUUBIN(YUUBIN);
+		staffIDto.setJYUSYO_1(JYUSYO_1);
+		staffIDto.setJYUSYO_2(JYUSYO_2);
+		staffIDto.setMOYORI_EKI(MOYORI_EKI);
+		staffIDto.setTEL(TEL);
+		staffIDto.setEMAIL(EMAIL);
+		staffIDto.setWECHAT(WECHAT);
+		staffIDto.setLINE(LINE);
+		staffIDto.setBOKOKU_JYUSYO(BOKOKU_JYUSYO);
+		staffIDto.setBOKOKU_KINNKYUU_RENNRAKU(BOKOKU_KINNKYUU_RENNRAKU);
+		staffIDto.setSAISYUU_GAKUREKI(Integer.parseInt(SAISYUU_GAKUREKI));
+		staffIDto.setGAKKOU_NAME(GAKKOU_NAME);
+		staffIDto.setSENNMOM_NAME(SENNMOM_NAME);
+		staffIDto.setSOTUGYO_DATE(java.sql.Date.valueOf(SOTUGYO_DATE));
+
+		// データベースアクセス用オブジェクトの生成
+		StaffDao objDao = new StaffDao();
+
+		// 書籍データを更新する命令を呼び出す
+		objDao.update(staffIDto);
+		
+		ArrayList<StaffDto> stfAl = objDao.selectAll();
+		request.setAttribute("stfAl",stfAl);
+
+		// ListServletに遷移する
+		request.getRequestDispatcher("/staffSearch.jsp").forward(request, response);
+
+	}
+}

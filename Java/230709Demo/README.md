@@ -65,10 +65,10 @@ console.log(btn); //複數
 		a.addEventListener('click', showDelMsg);
 	});
 ```
-9.  
+9.三元左邊要是變數  
 ```jsp
-	<!--  三元左邊要是變數 -->
-	<option value="<%=arr.getId() %>" <%=syoKin == arr.getId()?"selected":"" %>>
+	<% int syoKin = stfIdto.getSYOKUGYO_KIND(); %>  	
+	<option value="<%=arr.getId() %>" <%=syoKin == arr.getId()?"selected":"" %>>  
 ```
 
 

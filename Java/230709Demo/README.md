@@ -65,6 +65,12 @@ console.log(btn); //複數
 		a.addEventListener('click', showDelMsg);
 	});
 ```
+9.  
+```jsp
+	<!--  三元左邊要是變數 -->
+	<option value="<%=arr.getId() %>" <%=syoKin == arr.getId()?"selected":"" %>>
+```
+
 
 ###  遇到的問題  
 >**Warning**  

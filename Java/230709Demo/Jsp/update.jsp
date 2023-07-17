@@ -37,7 +37,12 @@
 </head>
 <body>
     <h1>社內統合管理システム</h1>
-    <p class="inline">登録日時:<span id="current_date"></span></p>
+    <div><a href="/bmsweb/menu.jsp" style="margin-right:3%;">
+    		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
+    <p class="inline">登録日時:
+    	<span id="current_date"></span>
+    	<a href="staffSearch.jsp">回上一頁</a>
+   	</p>
 
  <!--       <div style="text-align: right">ユ－ザ名:**-->
  		    <!-- 這裡抓取 -->　
@@ -48,16 +53,17 @@
     <h3>基本情報</h3><hr>
 
 <%
-	StaffUpdateDto stfIdto = (StaffUpdateDto)request.getAttribute("keyStaff");
+	StaffInsertDto stfIdto = (StaffInsertDto)request.getAttribute("keyStaff");
 	ArrayList<StaffOptComDto> alCom = (ArrayList) request.getAttribute("comAl");
 	ArrayList<StaffOptPjtDto> alPjt = (ArrayList) request.getAttribute("pjtAl");
+	
 %>
 
-    <form action="/bmsweb/staffList" method="post">
+    <form action="/bmsweb/staffUpdate" method="post">
         <ul>
         	<li>
         		<label for="id"></label>
-        		<input type="text" name="id" style="display:none;">
+        		<input type="text" name="id" style="display:none;" value="<%=stfIdto.getSYAIN_ID() %>">
         	</li>
         	<li><label for="syainmei">社員名(漢字)</label>
                 姓<input type="text" name="FIRST_NAME_KANJI" style="width: 60px;" value="<%=stfIdto.getFIRST_NAME_KANJI() %>">
@@ -74,7 +80,8 @@
                 last name<input type="text" name="LAST_NAME_EIGO" style="width: 60px;" value="<%=stfIdto.getLAST_NAME_EIGO() %>">
                 <span style="color: red;">必須</span>
             </li>
-            <li><label class="inline">性別　　　 　　 　　　　　
+            <li><label class="inline">性別　　　 　　 　　　
+				<span id="seb" style="display:none;"><%=stfIdto.getSEIBETU() %></span>　　
                 <input type="radio" name="SEIBETU" value="1">男
            　　  <input type="radio" name="SEIBETU" value="2">女</label>
             </li>
@@ -82,7 +89,9 @@
 				<input type="date" name="TANJYOBI" min="1950-01-01" value="<%=stfIdto.getTANJYOBI() %>"></label>
             </li>
             <li><label class="inline">国籍
+            	<span id="kok" style="display:none;"><%=stfIdto.getKOKUSEKI() %></span>　
             	<select name="KOKUSEKI" style="margin-left:150px;">
+            		<option value="0"></option>
                     <option value="1">日本</option>
                     <option value="2">中国</option>
                     <option value="3">台湾</option>
@@ -93,7 +102,8 @@
             <li><label for="cusname">出身地</label>
             	<input type="text" name="SYUSSINN" style="width:620px;" value="<%=stfIdto.getSYUSSINN() %>">
             </li>
-           	<li><label class="inline">配偶者有り無し 　　　　　
+           	<li><label class="inline">配偶者有り無し 　　　
+           		<span id="hai" style="display:none;"><%=stfIdto.getHAIGUSYA() %></span>　　　　
 				<input type="radio" name="HAIGUSYA" value="1">有
 				<input type="radio" name="HAIGUSYA" value="2">無</label>
 			</li>
@@ -106,8 +116,10 @@
             <li><label class="inline">パスポート有効日　 　 　 　
 				<input type="date" name="PASSPORT_END_DATE" min="2012-01-01" value="<%=stfIdto.getPASSPORT_END_DATE() %>"></label>
             </li>
-            <li><label class="inline">ビザ期限　　　　   　 　 　　
+            <li><label class="inline">ビザ期限　　　　
+            	<span id="vis" style="display:none;"><%=stfIdto.getVISA_KIKAN() %></span>　　   　 　 　　
 				<select name="VISA_KIKAN">
+					<option value="0"></option>
                     <option value="1">１年</option>
                     <option value="2">３年</option>
                     <option value="3">５年</option>
@@ -118,8 +130,10 @@
             <li><label class="inline">ビザ有効日　　 　　 　　 　
 				<input type="date" name="VISA_END_DATE" min="2013-06-01" value="<%=stfIdto.getVISA_END_DATE() %>"></label>
             </li>
-            <li><label class="inline">在留資格名称　 　 　 　　　
+            <li><label class="inline">在留資格名称　 　
+            	<span id="zai" style="display:none;"><%=stfIdto.getZAIRYU_SIKAKU() %></span> 　 　　　
 				<select name="ZAIRYU_SIKAKU">
+					<option value="0"></option>
                     <option value="1">技術・人文知識・国際業務</option>
                     <option value="2">特定活動(ワーキングなど</option>
                     <option value="3">家族滞在</option>
@@ -136,13 +150,17 @@
      　 　 　 　　<input type="text" name="ZAIRYU_NUM" style="margin-left: 42px;" value="<%=stfIdto.getZAIRYU_NUM() %>"></label>
 			</li>
 		</ul>
-
+		
         <h3>会社関連情報</h3><hr>
         <ul><li><label class="inline">所属会社　　
-            　 　<select name="com" style="margin-left: 60px;">
-<%  if(alCom != null){
+            　 　<select name="SYOZOKU_KAISYA" style="margin-left: 60px;">
+            		<option value="0"></option>
+<%  
+	int syoSya = stfIdto.getSYOZOKU_KAISYA();
+	if(alCom != null){
 	for(StaffOptComDto arr:alCom){
-%>         			<option value="<%=arr.getId() %>"><%=arr.getCom() %></option>
+%>         			
+					<option value="<%=arr.getId() %>" <%=syoSya==arr.getId()?"selected":"" %>><%=arr.getCom() %></option>
 <% }} %>   	    </select>
         　 　 　 　　　
 <!--     <select name="SYOZOKU_KAISYA">
@@ -160,14 +178,22 @@
            		<input type="text" name="TAISYA_DATE" style="width: 160px;" value="<%=stfIdto.getTAISYA_DATE() %>">
             	<span style="color: red;">※YYYY-MM-DD</span>
         	</li>
+
 	        <li><label class="inline">職業種類　　　 　 　 　　　
 	            <select name="SYOKUGYO_KIND">
-	                <option value="1">役員</option>
+	            	<option value="0"></option>
+<%  int syoKin = stfIdto.getSYOKUGYO_KIND();
+	if(alPjt != null){
+	for(StaffOptPjtDto arr:alPjt){
+%>         		<option value="<%=arr.getId() %>" <%=syoKin == arr.getId()?"selected":"" %>>
+							   <%=arr.getPjt() %></option>
+<% }} %>  
+<!--                  <option value="1">役員</option>
 	                <option value="2">総務</option>
 	                <option value="3">IT営業</option>
 	                <option value="4">ITエンジニア</option>
 	                <option value="5">不動産スタッフ</option>
-	                <option value="6">個人事業主</option>
+	                <option value="6">個人事業主</option>  -->	
 	            </select>
 
 	            </label>
@@ -221,8 +247,9 @@
  		<h3>学歴情報</h3><hr>
  		<ul>
 			<li><label class="inline">職業種類
-					<span><%=stfIdto.getSAISYUU_GAKUREKI() %></span>
-					<select id="sgi" name="SAISYUU_GAKUREKI" style="margin-left: 120px;">
+					<span id="sgi" style="display:none;"><%=stfIdto.getSAISYUU_GAKUREKI() %></span>
+					<select name="SAISYUU_GAKUREKI" style="margin-left: 120px;">
+						<option value="0"></option>
 			            <option value="1">大学院(博士)</option>
 			            <option value="2">大学(修士)</option>
 			            <option value="3">大学</option>
@@ -248,7 +275,43 @@
 <script>
 	document.getElementById("current_date").innerHTML = Date();
 
-	var sgi = document.getElementById("sgi");
+	// Radio
+	// 性別      Id ("seb") value  ;  Name("SEIBETU")          tar
+	// 有沒配偶   Id ("hai") value  ;  Name("HAIGUSYA")         tar
+	
+	// select option
+	// 學歷      Id("sgi")  value  ;  Name("SAISYUU_GAKUREKI") tar
+	
+	// a[0].type
+	function valueOn(tar,value){
+		var a = document.getElementById(value);
+		var b = document.getElementsByName(tar);
+		
+		// type 不是radio時
+		if(b[0].type!="radio"){
+			b = b[0];
+		}
+		
+		for(var i=0; i<b.length; i++){
+			if(b[i].value==a.textContent){
+				if(b[0].type=="radio"){
+					b[i].checked = true;
+				}else{
+					b[i].selected = true;
+				}
+			}
+		}
+	}
+	
+	valueOn("SEIBETU","seb");
+	valueOn("HAIGUSYA","hai");
+	
+	valueOn("SAISYUU_GAKUREKI","sgi");
+	valueOn("ZAIRYU_SIKAKU","zai");
+	valueOn("VISA_KIKAN","vis");
+	valueOn("KOKUSEKI","kok");
+	
+	//資格, Visa limlt, 国籍
 
 
 </script>

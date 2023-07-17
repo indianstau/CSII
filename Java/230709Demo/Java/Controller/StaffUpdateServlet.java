@@ -3,10 +3,13 @@ package bms.staff.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 import bms.staff.dao.StaffDao;
+import bms.staff.dto.StaffDto;
+import bms.staff.dto.StaffInsertDto;
 import bms.staff.dto.StaffOptComDto;
 import bms.staff.dto.StaffOptPjtDto;
-import bms.staff.dto.StaffUpdateDto;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,8 +39,7 @@ public class StaffUpdateServlet extends HttpServlet {
 //		request.getRequestDispatcher("/Insert.jsp").forward(request,response);
 
 		// 指定したISBN番号の書籍データを取得する命令を呼び出し、戻り値を取得する
-		StaffUpdateDto staffDto = objDao.selectBySyainId(SYAIN_ID);
-
+		StaffInsertDto staffDto = objDao.selectBySyainId(SYAIN_ID);
 
 		// 書籍データをリクエストスコープに格納
 		request.setAttribute("keyStaff", staffDto);
@@ -58,6 +60,7 @@ public class StaffUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// POST送信データの取得
+		String SYAIN_ID = request.getParameter("id");
 		String FIRST_NAME_KANJI = request.getParameter("FIRST_NAME_KANJI");
 		String LAST_NAME_KANJI = request.getParameter("LAST_NAME_KANJI");
 		String FIRST_NAME_KANA = request.getParameter("FIRST_NAME_KANA");
@@ -67,8 +70,8 @@ public class StaffUpdateServlet extends HttpServlet {
 		String SEIBETU = request.getParameter("SEIBETU");
 		String TANJYOBI = request.getParameter("TANJYOBI");
 		String KOKUSEKI = request.getParameter("KOKUSEKI");
-		String  SYUSSINN = request.getParameter("SYUSSINN");
-		String  HAIGUSYA = request.getParameter("HAIGUSYA");
+		String SYUSSINN = request.getParameter("SYUSSINN");
+		String HAIGUSYA = request.getParameter("HAIGUSYA");
 		String PASSPORT_NUM = request.getParameter("PASSPORT_NUM");
 		String PASSPORT_END_DATE = request.getParameter("PASSPORT_END_DATE");
 		String VISA_KIKAN = request.getParameter("VISA_KIKAN");
@@ -98,59 +101,59 @@ public class StaffUpdateServlet extends HttpServlet {
 		String SOTUGYO_DATE = request.getParameter("SOTUGYO_DATE");
 
 		// 更新処理に渡すデータをBookオブジェクトに格納してまとめる
-		StaffUpdateDto staffUpdateDto = new StaffUpdateDto();
+		StaffInsertDto staffIDto = new StaffInsertDto();
 
-
-		//staffInsertDto.setSYAIN_ID(Integer.parseInt(SYAIN_ID));
-		staffUpdateDto.setFIRST_NAME_KANJI(FIRST_NAME_KANJI);
-		staffUpdateDto.setLAST_NAME_KANJI(LAST_NAME_KANJI);
-		staffUpdateDto.setFIRST_NAME_KANA(FIRST_NAME_KANA);
-		staffUpdateDto.setLAST_NAME_KANA(LAST_NAME_KANA);
-		staffUpdateDto.setFIRST_NAME_EIGO(FIRST_NAME_EIGO);
-		staffUpdateDto.setLAST_NAME_EIGO(LAST_NAME_EIGO);
-		staffUpdateDto.setSEIBETU(Integer.parseInt(SEIBETU));
-		staffUpdateDto.setTANJYOBI(java.sql.Date.valueOf(TANJYOBI));
-		staffUpdateDto.setKOKUSEKI(Integer.parseInt(KOKUSEKI));
-		staffUpdateDto.setSYUSSINN(SYUSSINN);
-		staffUpdateDto.setHAIGUSYA(Integer.parseInt(HAIGUSYA));
-		staffUpdateDto.setPASSPORT_NUM(PASSPORT_NUM);
-		staffUpdateDto.setPASSPORT_END_DATE(java.sql.Date.valueOf(PASSPORT_END_DATE));
-		staffUpdateDto.setVISA_KIKAN(Integer.parseInt(VISA_KIKAN));
-		staffUpdateDto.setVISA_END_DATE(java.sql.Date.valueOf(VISA_END_DATE));
-		staffUpdateDto.setZAIRYU_SIKAKU(Integer.parseInt(ZAIRYU_SIKAKU));
-		staffUpdateDto.setKOJIN_NUM(KOJIN_NUM);
-		staffUpdateDto.setZAIRYU_NUM(ZAIRYU_NUM);
-		staffUpdateDto.setSYOZOKU_KAISYA(Integer.parseInt(SYOZOKU_KAISYA));
-		staffUpdateDto.setNYUUSYA_DATE(java.sql.Date.valueOf(NYUUSYA_DATE));
-		staffUpdateDto.setTAISYA_DATE(java.sql.Date.valueOf(TAISYA_DATE));
-		staffUpdateDto.setSYOKUGYO_KIND(Integer.parseInt(SYOKUGYO_KIND));
-		staffUpdateDto.setRAINITI_DATE(java.sql.Date.valueOf(RAINITI_DATE));
-		staffUpdateDto.setBIKOU(BIKOU);
-		staffUpdateDto.setYUUBIN(YUUBIN);
-		staffUpdateDto.setJYUSYO_1(JYUSYO_1);
-		staffUpdateDto.setJYUSYO_2(JYUSYO_2);
-		staffUpdateDto.setMOYORI_EKI(MOYORI_EKI);
-		staffUpdateDto.setTEL(TEL);
-		staffUpdateDto.setEMAIL(EMAIL);
-		staffUpdateDto.setWECHAT(WECHAT);
-		staffUpdateDto.setLINE(LINE);
-		staffUpdateDto.setBOKOKU_JYUSYO(BOKOKU_JYUSYO);
-		staffUpdateDto.setBOKOKU_KINNKYUU_RENNRAKU(BOKOKU_KINNKYUU_RENNRAKU);
-		staffUpdateDto.setSAISYUU_GAKUREKI(Integer.parseInt(SAISYUU_GAKUREKI));
-		staffUpdateDto.setGAKKOU_NAME(GAKKOU_NAME);
-		staffUpdateDto.setSENNMOM_NAME(SENNMOM_NAME);
-		staffUpdateDto.setSOTUGYO_DATE(java.sql.Date.valueOf(SOTUGYO_DATE));
-
+		staffIDto.setSYAIN_ID(Integer.parseInt(SYAIN_ID));
+		staffIDto.setFIRST_NAME_KANJI(FIRST_NAME_KANJI);
+		staffIDto.setLAST_NAME_KANJI(LAST_NAME_KANJI);
+		staffIDto.setFIRST_NAME_KANA(FIRST_NAME_KANA);
+		staffIDto.setLAST_NAME_KANA(LAST_NAME_KANA);
+		staffIDto.setFIRST_NAME_EIGO(FIRST_NAME_EIGO);
+		staffIDto.setLAST_NAME_EIGO(LAST_NAME_EIGO);
+		staffIDto.setSEIBETU(Integer.parseInt(SEIBETU));
+		staffIDto.setTANJYOBI(java.sql.Date.valueOf(TANJYOBI));
+		staffIDto.setKOKUSEKI(Integer.parseInt(KOKUSEKI));
+		staffIDto.setSYUSSINN(SYUSSINN);
+		staffIDto.setHAIGUSYA(Integer.parseInt(HAIGUSYA));
+		staffIDto.setPASSPORT_NUM(PASSPORT_NUM);
+		staffIDto.setPASSPORT_END_DATE(java.sql.Date.valueOf(PASSPORT_END_DATE));
+		staffIDto.setVISA_KIKAN(Integer.parseInt(VISA_KIKAN));
+		staffIDto.setVISA_END_DATE(java.sql.Date.valueOf(VISA_END_DATE));
+		staffIDto.setZAIRYU_SIKAKU(Integer.parseInt(ZAIRYU_SIKAKU));
+		staffIDto.setKOJIN_NUM(KOJIN_NUM);
+		staffIDto.setZAIRYU_NUM(ZAIRYU_NUM);
+		staffIDto.setSYOZOKU_KAISYA(Integer.parseInt(SYOZOKU_KAISYA));
+		staffIDto.setNYUUSYA_DATE(java.sql.Date.valueOf(NYUUSYA_DATE));
+		staffIDto.setTAISYA_DATE(java.sql.Date.valueOf(TAISYA_DATE));
+		staffIDto.setSYOKUGYO_KIND(Integer.parseInt(SYOKUGYO_KIND));
+		staffIDto.setRAINITI_DATE(java.sql.Date.valueOf(RAINITI_DATE));
+		staffIDto.setBIKOU(BIKOU);
+		staffIDto.setYUUBIN(YUUBIN);
+		staffIDto.setJYUSYO_1(JYUSYO_1);
+		staffIDto.setJYUSYO_2(JYUSYO_2);
+		staffIDto.setMOYORI_EKI(MOYORI_EKI);
+		staffIDto.setTEL(TEL);
+		staffIDto.setEMAIL(EMAIL);
+		staffIDto.setWECHAT(WECHAT);
+		staffIDto.setLINE(LINE);
+		staffIDto.setBOKOKU_JYUSYO(BOKOKU_JYUSYO);
+		staffIDto.setBOKOKU_KINNKYUU_RENNRAKU(BOKOKU_KINNKYUU_RENNRAKU);
+		staffIDto.setSAISYUU_GAKUREKI(Integer.parseInt(SAISYUU_GAKUREKI));
+		staffIDto.setGAKKOU_NAME(GAKKOU_NAME);
+		staffIDto.setSENNMOM_NAME(SENNMOM_NAME);
+		staffIDto.setSOTUGYO_DATE(java.sql.Date.valueOf(SOTUGYO_DATE));
 
 		// データベースアクセス用オブジェクトの生成
 		StaffDao objDao = new StaffDao();
 
 		// 書籍データを更新する命令を呼び出す
-		objDao.update(staffUpdateDto);
-
+		objDao.update(staffIDto);
+		
+		ArrayList<StaffDto> stfAl = objDao.selectAll();
+		request.setAttribute("stfAl",stfAl);
 
 		// ListServletに遷移する
-		request.getRequestDispatcher("/staffSearcch.jsp").forward(request, response);
+		request.getRequestDispatcher("/staffSearch.jsp").forward(request, response);
 
 	}
 }

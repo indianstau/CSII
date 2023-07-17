@@ -40,7 +40,7 @@
     <div><a href="/bmsweb/menu.jsp" style="margin-right:3%;">
     		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
     <p class="inline">登録日時:
-    	<span id="current_date"></span>
+    	<span id="current_time"></span>
     	<a href="staffSearch.jsp">回上一頁</a>
    	</p>
 
@@ -273,7 +273,24 @@
 
 
 <script>
-	document.getElementById("current_date").innerHTML = Date();
+
+function showTime(){
+		var NowDate = new Date();
+		var y = NowDate.getFullYear();
+		var m = NowDate.getMonth()+1;
+		var d = NowDate.getDate();
+		var h = NowDate.getHours();
+		var min = NowDate.getMinutes();
+		var s = NowDate.getSeconds();　
+		document.getElementById('current_time').innerHTML = y+ "/"+m+"/"+d+ "__  " +h+"時"+min+"分"+s+"秒";
+		setTimeout('showTime()',1000);
+	
+	
+		//document.getElementById("current_time").innerHTML = new Date();
+		//setTimeout('showTime()',1000);
+	}
+
+	showTime();
 
 	// Radio
 	// 性別      Id ("seb") value  ;  Name("SEIBETU")          tar

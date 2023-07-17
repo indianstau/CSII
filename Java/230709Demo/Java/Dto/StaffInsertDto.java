@@ -95,7 +95,7 @@ public class StaffInsertDto {
 	//学校名
 	private String SENNMOM_NAME;
 	//専門
-	private String SOTUGYO_DATE;
+	private Date SOTUGYO_DATE;
 	//卒業年月日
 	public int getSYAIN_ID() {
 		return SYAIN_ID;
@@ -325,11 +325,12 @@ public class StaffInsertDto {
 	public void setSENNMOM_NAME(String sENNMOM_NAME) {
 		SENNMOM_NAME = sENNMOM_NAME;
 	}
-	public String getSOTUGYO_DATE() {
+	public Date getSOTUGYO_DATE() {
 		return SOTUGYO_DATE;
 	}
-	public void setSOTUGYO_DATE(String sOTUGYO_DATE) {
+	public void setSOTUGYO_DATE(Date sOTUGYO_DATE) {
 		SOTUGYO_DATE = sOTUGYO_DATE;
 	}
+	
 
-	}
+}

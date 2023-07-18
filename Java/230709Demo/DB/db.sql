@@ -1,3 +1,30 @@
+
+--  正確的資料欄位  建兩個方法
+SELECT * FROM tg_setting;
+
+/* category2   com setting    1 株式会社ブライトスター    2 株式会社トップクラウド  */
+SELECT category2,VALUE1 FROM tg_setting
+WHERE category1 = '1' AND category3 = '1';
+
+/*   SYOKUGYO_KIND   職種  1-6   */
+SELECT category3,VALUE1 FROM tg_setting
+WHERE category1 = '3' AND category2 = '4';
+
+-- courary
+SELECT category3,VALUE1 FROM tg_setting WHERE category1=3 AND category2=1;
+
+-- visa
+SELECT category3,VALUE1 FROM tg_setting WHERE category1=3 AND category2=3;
+
+-- 學歷
+SELECT category3,VALUE1 FROM tg_setting WHERE category1=3 AND category2=5;
+
+--  year ?
+SELECT category3,VALUE1 FROM tg_setting WHERE category1=3 AND category2=2;
+
+
+
+-- 不代欄位
 INSERT INTO `syain_main` 
 VALUES (6,'宮', '之本', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 
 NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2016-08-19', null,2, 

@@ -10,10 +10,13 @@
 1. str 累加 StringBuffer  
 2. input: radio select option checkbox 除了從後端撈出對應方法外？
 3. Dao 各method()  <> ArrayList array 更好的寫法
-4. date 預處理
+4. date 預處理 session  
 5. 不寫明碼  a tag :class="deleteBtn" href="/bmsweb/staffDelete?id=<%=dto.getSyain_id() %>"  削除 /a tag    
    外 JavaScript 寫法  ?.click()   ???  
-[不明碼](https://codepen.io/san__/pen/OJazwQo?editors=0011)  未測試  
+[不明碼](https://codepen.io/san__/pen/OJazwQo?editors=0011)  未測試
+6. table 用 ts_setting 抓所有select & check & radio 欄位  dao 寫兩個方法  
+7. 分頁  and ErrorMsg 未寫  
+8. Search 選的項目 存在Session 裡  撈出後 顯示出來  
   
 ------------------------  
 ### 筆記  與  

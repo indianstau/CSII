@@ -6,4 +6,7 @@
 >H2 Datebase  
 >MariaDB Driver  
 >Thymeleaf  
->Spring Web  
+>Spring Web
+
+pom.xml 查看依賴  
+

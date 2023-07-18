@@ -38,7 +38,7 @@
 <body>
     <h1>社內統合管理システム</h1>
     <div><a href="/bmsweb/menu.jsp" style="margin-right:3%;">
-    		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a>
+    		<img src="https://cdn-icons-png.flaticon.com/512/151/151409.png" style="width:3%;"></a></div>
     <p class="inline">登録日時:
     	<span id="current_time"></span>
     	<a href="staffSearch.jsp">回上一頁</a>

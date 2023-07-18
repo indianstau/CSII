@@ -303,7 +303,7 @@ public class StaffDao extends CommonDAO{
 				    staffUpdateDto.setSAISYUU_GAKUREKI(rs.getInt("SAISYUU_GAKUREKI"));
 				    staffUpdateDto.setGAKKOU_NAME(rs.getString("GAKKOU_NAME"));
 				    staffUpdateDto.setSENNMOM_NAME(rs.getString("SENNMOM_NAME"));
-				    staffUpdateDto.setSOTUGYO_DATE(rs.getString("SOTUGYO_DATE"));
+				    staffUpdateDto.setSOTUGYO_DATE(rs.getDate("SOTUGYO_DATE"));
 				}
 			// 呼び出し元へ書籍データを返す
 			return staffUpdateDto;

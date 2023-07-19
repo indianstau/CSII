@@ -11,6 +11,19 @@
 >Thymeleaf
 >Lombok
 
+ ##### note  
+ @RestController = @Controller + @ResponseBody  
+
+ 代參數方法：  
+ Method  
+ ("/{author}");  
+ (@PathVariable String author)  
+
+ Front end  
+ [[${key}]]  
+ p tag <> 裡 th:text="${key}"
+     
+ th  from thymeleaf 依賴   
 
 pom.xml 查看依賴  
 

@@ -30,8 +30,8 @@
  4.後端  Model model --->  顯示回前端
  model.addAttribute("key", param1  +  param2)  
 
- 5.  前端 th:action="@{/hom}" 對應  Controller @RequestMapping("/hom")
- 6.  return "對應html name"  
+ 5.前端 th:action="@{/hom}" 對應  Controller @RequestMapping("/hom")
+ 6.return "對應html name"  
 
 pom.xml 查看依賴  
 

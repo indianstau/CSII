@@ -11,19 +11,27 @@
 >Thymeleaf
 >Lombok
 
- ##### note  
- @RestController = @Controller + @ResponseBody  
+-----------------    
+    
+ ### note  
+ 1.@RestController = @Controller + @ResponseBody  
 
- 代參數方法：  
+ 2.代參數方法：  
  Method  
  ("/{author}");  
  (@PathVariable String author)  
 
  Front end  
  [[${key}]]  
- p tag <> 裡 th:text="${key}"
-     
- th  from thymeleaf 依賴   
+ p tag <> 裡 th:text="${key}"   
+ (th:from thymeleaf 依賴)   
+
+ 3.前端的name --> 後端 @ModelAttribute("name") 型別  命名  
+ 4.後端  Model model --->  顯示回前端
+ model.addAttribute("key", param1  +  param2)  
+
+ 5.  前端 th:action="@{/hom}" 對應  Controller @RequestMapping("/hom")
+ 6.  return "對應html name"  
 
 pom.xml 查看依賴  
 

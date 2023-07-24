@@ -33,5 +33,17 @@
  5.前端 th:action="@{/hom}" 對應  Controller @RequestMapping("/hom")
  6.return "對應html name"  
 
+ 7.@Autowired  建構參數  , entity Dto  
+ 8.resources/applicatio.properties   放連接DB  url ps drive  
+ 9.Repository.xml  專放SQL query 要對應 resources/file (jp/csii/repository)  interface (my bitis if test)  
+ 10.Service java clasee sql findAll findByName,  
+
+ -----------  
+ ### 補充  
+ MVC 對應 spring boot 資料結構  說明網站  
+ (目錄結構)[https://morosedog.gitlab.io/springboot-20190314-springboot3/]   
+ (目录结构)[https://blog.csdn.net/biedazhangshu/article/details/117330528]
+ 
+
 pom.xml 查看依賴  
 

@@ -13,7 +13,8 @@
 
 -----------------    
     
- ### note  
+ >**note**
+ 
  1.@RestController = @Controller + @ResponseBody  
 
  2.代參數方法：  
@@ -41,8 +42,8 @@
  -----------  
  ### 補充  
  MVC 對應 spring boot 資料結構  說明網站  
- (目錄結構)[https://morosedog.gitlab.io/springboot-20190314-springboot3/]   
- (目录结构)[https://blog.csdn.net/biedazhangshu/article/details/117330528]
+ [目錄結構](https://morosedog.gitlab.io/springboot-20190314-springboot3/)   
+ [目录结构](https://blog.csdn.net/biedazhangshu/article/details/117330528)
  
 
 pom.xml 查看依賴  

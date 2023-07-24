@@ -12,9 +12,8 @@
 >Lombok
 
 -----------------    
-    
- >**note**
- 
+
+ ### 筆記     
  1.@RestController = @Controller + @ResponseBody  
 
  2.代參數方法：  

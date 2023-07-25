@@ -38,6 +38,13 @@
  9.Repository.xml  專放SQL query 要對應 resources/file (jp/csii/repository)  interface (my bitis if test)  
  10.Service java clasee sql findAll findByName,  
 
+傳參數寫法    
+#{param}, '${param}' or "${param}",  "*{staff.id}"  
+
+my bitis    VALUE ('#{id}')    
+thymeleaf   th:text="${param}"  or WHERE id = '${id}'  
+  
+[Thymeleaf變量說明](https://blog.csdn.net/weixin_52851967/article/details/124708509)    
  -----------  
  ### 補充  
  MVC 對應 spring boot 資料結構  說明網站  

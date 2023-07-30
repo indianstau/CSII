@@ -80,14 +80,19 @@ console.log(btn); //複數
 A. SVN 競合問題     
    
 ----------------------------------
-#### 計畫  
-1. Delete insert update
-2. Search time
-3. 自己會寫Dao 不用抄  
-4. list 分頁
-5. ErrorMsg 後台  
+
+
 
 待補  
 SVN  Eclipse 改編碼  Debug  tomCat, JDK 對應verson解決方法  自動提示設定  
 To be continued..  
-[HackMD](https://hackmd.io/)
+[HackMD](https://hackmd.io/)  
+
+### 未完成 與 錯誤  
+1.seesion 存search 條件 and 預撈取  
+2.dao 寫錯了  一個表格 抓全部 選項 2 mdthod  
+3.list 分頁  
+4.ErrorMsg 後台  
+
+100 -> javascript   
+spring boot  

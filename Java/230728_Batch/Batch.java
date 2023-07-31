@@ -149,10 +149,11 @@ public class Batch {
 						String sql = "INSERT INTO customer VALUES(null, '"
 								+ cheTab[n][0] + "', '" + cheTab[n][1] + "', '"
 				  				+ cheTab[n][2] + "', '" + cheTab[n][3] + "')";
+						// batch 用
 						smt.addBatch(sql);
 					}
 				}
-
+				// 複數sql qyery
 				smt.executeBatch();
 
 				try {

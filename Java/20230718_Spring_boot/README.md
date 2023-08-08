@@ -11,7 +11,11 @@
 >Thymeleaf
 >Lombok
 
------------------    
+-----------------   
+###安裝   
+Help > MarketPlace > 裝Spring boot 4  
+New > Other > Spring boot > Spring starter Project   
+Type: Maven / Jar    (Gradle-groovy, Kotlin)  差異   
 
  ### 筆記     
  1.@RestController = @Controller + @ResponseBody  
@@ -41,7 +45,7 @@
 傳參數寫法    
 #{param}, '${param}' or "${param}",  "*{staff.id}"  
 
-my bitis    VALUE ('#{id}')    
+mybatis    VALUE ('#{id}')    
 thymeleaf   th:text="${param}"  or WHERE id = '${id}'  
   
 [Thymeleaf變量說明](https://blog.csdn.net/weixin_52851967/article/details/124708509)    
@@ -53,4 +57,7 @@ thymeleaf   th:text="${param}"  or WHERE id = '${id}'
  
 
 pom.xml 查看依賴  
+
+####關鍵字  
+Spring boot, mybatis,  thymeleaf  
 

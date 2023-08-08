@@ -41,6 +41,12 @@ Type: Maven / Jar    (Gradle-groovy, Kotlin)  差異
  8.resources/applicatio.properties   放連接DB  url ps drive  
  9.Repository.xml  專放SQL query 要對應 resources/file (jp/csii/repository)  interface (my bitis if test)  
  10.Service java clasee sql findAll findByName,  
+    
+ cortroller   
+ entity      --> Dto  
+ Repository  -->  SQL medthod  (sql
+ Service     -->  method (view  
+ 
 
 傳參數寫法    
 #{param}, '${param}' or "${param}",  "*{staff.id}"  

@@ -44,7 +44,7 @@ Type: Maven / Jar    (Gradle-groovy, Kotlin)  差異
     
  cortroller   
  entity      --> Dto  
- Repository  -->  SQL medthod  (sql
+ Repository  -->  SQL medthod  (sql  
  Service     -->  method (view  
  
 

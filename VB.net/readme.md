@@ -7,6 +7,7 @@ Public Function GetArea() As Double
 End Function
 
 Module Program
+  'Main 今天要帶參數出門
   Sub Main(args As String())
   End Sub
 End Module
@@ -27,7 +28,7 @@ Public Sub XXX()
 End Sub
 ```
 
-枚舉   
+枚舉 很好用  
 ```vb.net    
 Enum Colors
     red = 1

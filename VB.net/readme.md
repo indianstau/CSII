@@ -3,16 +3,27 @@ VB.net  筆記
   
 沒有{}    
 ```vb.net
-Private length As Double
-Public Sub XXX()
-'我是註解  
-Console.WriteLine("A rea = " & vbCrLf & "1" & Str(area))
-'Str() 轉型, vbCrLf 換行符, 參數沒有+,是 &  
-End Sub
-  
 Public Function GetArea() As Double  
 End Function
+```
 
+命名方式/註解   
+```vb.net
+Private length As Double
+    'Dim As
+    Dim StudentID As Integer = 100
+    Dim r As New test()
+```
+
+Str() 轉型, vbCrLf 換行符, 參數沒有+,是 &   
+```vb.net
+Public Sub XXX()
+  Console.WriteLine("A rea = " & vbCrLf & "1" & Str(area))
+End Sub
+```
+
+枚舉   
+```vb.net    
 Enum Colors
     red = 1
     green = 4
@@ -21,10 +32,16 @@ Enum Colors
 End Enum
 
 Shared Sub Main()
-  'Dim 命名
-  Dim StudentID As Integer = 100
-  Dim r As New test()
-  Console.WriteLine("the color red is :" & Colors.red)
+    Console.WriteLine("the color red is :" & Colors.red)
 End Sub
 ```
+
+If else  
+```vb.net
+    If length = 4 Then
+        Console.WriteLine("I am ture!")
+    Else
+        Console.WriteLine("false")
+    End If
+```  
 

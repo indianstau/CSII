@@ -5,6 +5,11 @@ VB.net  筆記
 ```vb.net
 Public Function GetArea() As Double  
 End Function
+
+Module Program
+  Sub Main(args As String())
+  End Sub
+End Module
 ```
 
 命名方式/註解   

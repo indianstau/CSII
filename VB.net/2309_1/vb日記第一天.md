@@ -49,7 +49,11 @@ If else
     Else
         Console.WriteLine("false")
     End If
-```  
+```
+
+### 快捷鍵  
+ctrl + k + c  
+ctrl + k + U  
 
 大家好  
 我叫冗言 VB.net  

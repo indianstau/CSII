@@ -62,4 +62,4 @@ public sub
 end sub  
 謝謝  
 
-明天再來介紹要Main 要帶參數出門  
+明天再來介紹Main 要帶參數出門  

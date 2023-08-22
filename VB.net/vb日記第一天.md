@@ -51,3 +51,15 @@ If else
     End If
 ```  
 
+大家好  
+我叫冗言 VB.net  
+今年有點大,快被淘汰了  
+
+先來介紹命名方式需要Dim as的關鍵字  
+Dim StudentID As Integer = 100  
+然後沒有{} ,只有頭尾一對    
+public sub  
+end sub  
+謝謝  
+
+明天再來介紹要Main 要帶參數出門  

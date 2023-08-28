@@ -51,6 +51,12 @@ If else
     End If
 ```
 
+```vb.net
+For i As Integer = 1 To 5 Step 1
+    Console.WriteLine("for count " & i)
+Next
+```  
+
 ### 快捷鍵  
 ctrl + k + c  
 ctrl + k + U  

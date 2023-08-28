@@ -51,6 +51,7 @@ If else
     End If
 ```
 
+For 迴圈  
 ```vb.net
 For i As Integer = 1 To 5 Step 1
     Console.WriteLine("for count " & i)

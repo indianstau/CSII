@@ -56,7 +56,15 @@ For 迴圈
 For i As Integer = 1 To 5 Step 1
     Console.WriteLine("for count " & i)
 Next
-```  
+```
+For Each  
+```vb.net
+Dim numbers() As Integer = {3, 5, 6, 7, 2}
+For Each num As Integer In numbers
+    Console.WriteLine(num)
+Next
+```
+
 
 ### 快捷鍵  
 ctrl + k + c  

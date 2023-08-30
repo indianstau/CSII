@@ -65,6 +65,28 @@ For Each num As Integer In numbers
 Next
 ```
 
+找出最大值  
+```vb.net
+Dim array() As Integer = {5, 49, 83, 14, 28, 1}
+
+Function FindMaxNumber(array() As Integer) As Integer
+    '第一位是5 固定的
+    Dim max As Integer = array(0)
+    For Each num As Integer In array
+        If num > max Then
+        '比5大時就存進去,往下一個比
+            max = num
+        End If
+    Next
+    Return max
+End Function
+
+Sub Main()
+    Dim r As New test()
+    Dim maxM As Integer = r.FindMaxNumber(array)
+End Sub
+```
+
 
 ### 快捷鍵  
 ctrl + k + c  

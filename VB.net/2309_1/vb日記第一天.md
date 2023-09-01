@@ -62,6 +62,7 @@ For Each
 Dim numbers() As Integer = {3, 5, 6, 7, 2}
 For Each num As Integer In numbers
     Console.WriteLine(num)
+'n(i) = n[i]  
 Next
 ```
 
